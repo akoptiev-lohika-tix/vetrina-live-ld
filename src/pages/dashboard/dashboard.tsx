@@ -1,8 +1,8 @@
 import React from 'react';
-import NavBar from '../../components/navigation/navBar';
+import Navigation from '../../components/navigation/navigation';
 
 const Dashboard: React.FC = () => {
-  return <NavBar />;
+  return <Navigation />;
 };
 
 export default Dashboard;
