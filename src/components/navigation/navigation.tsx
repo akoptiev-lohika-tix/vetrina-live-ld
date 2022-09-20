@@ -16,8 +16,12 @@ import { navBarHeight, navigationWidth } from '../../constants';
 import { Box, SvgIcon } from '@mui/material';
 import Logo from '../../assets/logo.svg';
 import { ReactComponent as MenuIcon } from '../../assets/menunav-icon.svg';
+import { loadPagesData } from '../../api';
 
 const Navigation: React.FC = () => {
+  loadPagesData()
+    .then((data) => console.log(data))
+    .catch((error) => console.log(error));
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = (): void => {

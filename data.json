@@ -1,0 +1,247 @@
+{
+  "mainPages": [
+    {
+      "dashboard": {
+        "displayName": "Dashboard",
+        "path": "/dashboard",
+        "iconName": "Dashboard",
+        "subPages": null,
+        "hasBadge": false
+      }
+    },
+    {
+      "catalogue": {
+        "displayName": "Catalogue",
+        "path": "/catalogue",
+        "iconName": "Catalogue",
+        "subPages": [
+          {
+            "phones": {
+              "displayName": "Phones",
+              "path": "/phones"
+            }
+          },
+          {
+            "computers": {
+              "displayName": "Computers",
+              "path": "/computers"
+            }
+          }
+        ],
+        "hasBadge": false
+      }
+    },
+    {
+      "orders": {
+        "displayName": "Orders",
+        "path": "/orders",
+        "iconName": "Orders",
+        "subPages": null,
+        "hasBadge": true
+      }
+    },
+    {
+      "customers": {
+        "displayName": "Customers",
+        "path": "/customers",
+        "iconName": "Customers",
+        "subPages": null,
+        "hasBadge": false
+      }
+    },
+    {
+      "marketing": {
+        "displayName": "Marketing",
+        "path": "/marketing",
+        "iconName": "Marketing",
+        "subPages": [
+          {
+            "discountCodes": {
+              "displayName": "Discount codes",
+              "path": "/discount-codes"
+            }
+          },
+          {
+            "exitIntent": {
+              "displayName": "Exit intent",
+              "path": "/exit-intent"
+            }
+          },
+          {
+            "checkoutFeatures": {
+              "displayName": "Checkout Features",
+              "path": "/checkout-features"
+            }
+          },
+          {
+            "PostPurchaseConversion": {
+              "displayName": "Post-purchase conversion",
+              "path": "/post-purchase-conversion"
+            }
+          },
+          {
+            "cartAbandonment": {
+              "displayName": "Cart abandonment",
+              "path": "/cart-abandonment"
+            }
+          },
+
+          {
+            "timerCheckout": {
+              "displayName": "Timer checkout",
+              "path": "/timer-checkout"
+            }
+          },
+          {
+            "sellOnSocial": {
+              "displayName": "Sell on Social",
+              "path": "/sell-on-social"
+            }
+          },
+          {
+            "specialOffer": {
+              "displayName": "Special Offer",
+              "path": "/special-offer"
+            }
+          },
+          {
+            "seasonalOffer": {
+              "displayName": "Seasonal Offer",
+              "path": "/seasonal-offer"
+            }
+          }
+        ],
+        "hasBadge": false
+      }
+    },
+    {
+      "deliveryOptions": {
+        "displayName": "Delivery Options",
+        "path": "/delivery-options",
+        "iconName": "DeliveryOptions",
+        "subPages": null,
+        "hasBadge": false
+      }
+    },
+    {
+      "paymentOptions": {
+        "displayName": "Payment Options",
+        "path": "/payment-options",
+        "iconName": "PaymentOptions",
+        "subPages": null,
+        "hasBadge": false
+      }
+    },
+    {
+      "storeDesign": {
+        "displayName": "Store Design",
+        "path": "/store-design",
+        "iconName": "StoreDesign",
+        "subPages": null,
+        "hasBadge": false
+      }
+    },
+    {
+      "subscription": {
+        "displayName": "Subscription",
+        "path": "/subscription",
+        "iconName": "Subscription",
+        "subPages": null,
+        "hasBadge": false
+      }
+    },
+    {
+      "integrations": {
+        "displayName": "Integrations",
+        "path": "/integrations",
+        "iconName": "Integrations",
+        "subPages": null,
+        "hasBadge": false
+      }
+    },
+    {
+      "extensions": {
+        "displayName": "Extensions",
+        "path": "/extensions",
+        "iconName": "Extensions",
+        "subPages": null,
+        "hasBadge": false
+      }
+    },
+    {
+      "settings": {
+        "displayName": "Settings",
+        "path": "/settings",
+        "iconName": "Settings",
+        "subPages": null,
+        "hasBadge": false
+      }
+    },
+    {
+      "logOut": {
+        "displayName": "Log Out",
+        "path": "/register",
+        "iconName": "LogOut",
+        "subPages": null,
+        "hasBadge": false
+      }
+    }
+  ],
+  "supportPages": [
+    {
+      "customerSupport": {
+        "displayName": "Customer Support",
+        "path": "/customer-support",
+        "iconName": "CustomerSupport",
+        "subPages": null,
+        "hasBadge": false
+      }
+    },
+    {
+      "shareShop": {
+        "displayName": "Share your shop",
+        "path": "/share-shop",
+        "iconName": "ShareShop",
+        "subPages": null,
+        "hasBadge": false
+      }
+    },
+    {
+      "viewShop": {
+        "displayName": "View your shop",
+        "path": "/view-shop",
+        "iconName": "ViewShop",
+        "subPages": null,
+        "hasBadge": false
+      }
+    }
+  ],
+  "stores": [
+    {
+      "fenohStore": {
+        "disaplayName": "Fenoh Store",
+        "data": {
+          "visitors": 1824,
+          "ordersNew": 14,
+          "ordersReceived": 156,
+          "currency": "EUR",
+          "earnings:": 1893.24,
+          "shopConfigurationProgress": 45,
+          "notifications": [
+            {
+              "message": "Please finish configure your shop"
+            },
+            {
+              "message": "You have received a new order"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "secondStore": {
+        "disaplayName": "Second Store"
+      }
+    }
+  ]
+}
