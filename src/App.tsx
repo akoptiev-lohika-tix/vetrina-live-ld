@@ -1,19 +1,28 @@
 import React from 'react';
-import './App.css';
-import Dashboard from './pages/dashboard/dashboard';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+import './App.css';
+import Dashboard from './pages/dashboard/dashboard';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#103b66'
+      main: '#103b66',
+      dark: '#233B53'
     },
     secondary: {
       main: '#ffffff',
       dark: '#f7f7f7',
       light: '#e5e5e5'
     }
+  },
+  typography: {
+    fontFamily: '"Noto Sans HK", "sans-serif"',
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700
   }
 });
 
