@@ -1,1 +1,1 @@
-export * from './main-pages-types';
+export * from './pages-types';

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Box, CircularProgress, SvgIcon } from '@mui/material';
+import { SvgIcon } from '@mui/material';
 
 import NavAppBarStyled from './nav-app-bar-styled';
 import ToolbarStyled from './toolbar-styled';
@@ -8,12 +8,12 @@ import IconButtonStyled from './icon-button-styled';
 import BoxStyled from './box-styled';
 import { LOGO_ALT, navBarHeight, navigationWidth } from '../../constants';
 import { ReactComponent as MenuIcon } from '../../assets/menunav-icon.svg';
-import { useActions, useTypedSelector } from '../../redux/hooks';
+import { useActions } from '../../redux/hooks';
 import Logo from '../../assets/logo.svg';
 import NavigationList from '../navigation-list/navigation-list';
+import DrawerStyled from './drawer-styled';
 
 const Navigation: React.FC = () => {
-  const { loading } = useTypedSelector((state) => state.mainPages);
   const { fetchMainPages } = useActions();
 
   useEffect(() => {
@@ -23,13 +23,6 @@ const Navigation: React.FC = () => {
   const [open, setOpen] = useState(true);
 
   const toggleNavigationOpen = (): void => setOpen(!open);
-  if (loading) {
-    return (
-      <Box sx={{ display: 'flex' }}>
-        <CircularProgress />
-      </Box>
-    );
-  }
 
   return (
     <>
@@ -37,7 +30,6 @@ const Navigation: React.FC = () => {
         <ToolbarStyled disableGutters height={24} variant="dense">
           <BoxStyled component="img" height={14} alt={LOGO_ALT} src={Logo} />
           <IconButtonStyled
-            color="inherit"
             aria-label="open drawer"
             onClick={toggleNavigationOpen}
             edge="start"
@@ -46,7 +38,9 @@ const Navigation: React.FC = () => {
           </IconButtonStyled>
         </ToolbarStyled>
       </NavAppBarStyled>
-      <NavigationList open={open} />
+      <DrawerStyled variant="persistent" anchor="top" open={open}>
+        <NavigationList />
+      </DrawerStyled>
     </>
   );
 };

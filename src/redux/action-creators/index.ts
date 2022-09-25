@@ -1,1 +1,1 @@
-export * from './main-pages';
+export * from './pages';

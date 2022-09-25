@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import { mainPagesReducer } from './mainPagesReducer';
+import { pagesReducer } from './pagesReducer';
 
 export const rootReducer = combineReducers({
-  mainPages: mainPagesReducer
+  pages: pagesReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

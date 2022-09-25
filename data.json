@@ -1,5 +1,5 @@
 {
-  "mainPages": [
+  "pages": [
     {
       "name": "dashboard",
       "displayName": "Dashboard",
@@ -147,9 +147,7 @@
       "iconName": "LogOut",
       "subPages": null,
       "hasBadge": false
-    }
-  ],
-  "supportPages": [
+    },
     {
       "name": "customerSupport",
       "displayName": "Customer Support",
@@ -166,7 +164,6 @@
       "subPages": null,
       "hasBadge": false
     },
-
     {
       "name": "viewShop",
       "displayName": "View your shop",
