@@ -5,7 +5,7 @@ import { SvgIcon } from '@mui/material';
 import NavAppBarStyled from './nav-app-bar-styled';
 import ToolbarStyled from './toolbar-styled';
 import IconButtonStyled from './icon-button-styled';
-import BoxStyled from './box-styled';
+import { SharedBoxStyled } from '../shared-styled';
 import { LOGO_ALT, navBarHeight, navigationWidth } from '../../constants';
 import { ReactComponent as MenuIcon } from '../../assets/menunav-icon.svg';
 import { useActions } from '../../redux/hooks';
@@ -28,7 +28,7 @@ const Navigation: React.FC = () => {
     <>
       <NavAppBarStyled position="fixed" width={navigationWidth} height={navBarHeight} elevation={0}>
         <ToolbarStyled disableGutters height={24} variant="dense">
-          <BoxStyled component="img" height={14} alt={LOGO_ALT} src={Logo} />
+          <SharedBoxStyled component="img" height={14} alt={LOGO_ALT} src={Logo} />
           <IconButtonStyled
             aria-label="open drawer"
             onClick={toggleNavigationOpen}
