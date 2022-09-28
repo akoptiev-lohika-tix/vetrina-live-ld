@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-
-import NavigationListItem from '../navigation-list-item/navigation-list-item';
 import { useTypedSelector } from '../../redux/hooks';
 import { Page } from '../../interfaces';
+import { SharedListStyled } from '../shared-styled';
+import DividerStyled from './divider-styled';
+import { useTheme } from '@mui/material';
+import NavigationListItem from '../navigation-list-item/navigation-list-item';
 
 export const NavigationList: React.FC = () => {
   const { pages } = useTypedSelector((state) => state.pages);
+  const { palette } = useTheme();
 
   const [selectedId, setSelectedId] = useState<Page['id']>(0);
 
@@ -16,12 +17,8 @@ export const NavigationList: React.FC = () => {
     setSelectedId(id);
   };
 
-  useEffect(() => {
-    console.log(selectedId);
-  }, [selectedId]);
-
   return (
-    <List>
+    <SharedListStyled paddingtop={15}>
       {pages.map((page) => (
         <>
           <NavigationListItem
@@ -31,16 +28,11 @@ export const NavigationList: React.FC = () => {
             selectedId={selectedId}
           />
           {page.name === 'logOut' && (
-            <Divider
-              sx={{
-                marginBottom: '20px',
-                marginTop: '20px'
-              }}
-            />
+            <DividerStyled marginbottom={16} margintop={16} color={palette.grey['400']} />
           )}
         </>
       ))}
-    </List>
+    </SharedListStyled>
   );
 };
 

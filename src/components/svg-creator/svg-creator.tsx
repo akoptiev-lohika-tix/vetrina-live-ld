@@ -46,7 +46,7 @@ const iconsMap: Record<string, React.FunctionComponent<React.SVGProps<SVGSVGElem
 const SvgCreator: React.FC<Props> = ({ iconName }) => {
   const IconComponent = iconsMap[iconName];
 
-  return <SvgIcon component={IconComponent} />;
+  return <SvgIcon component={IconComponent} inheritViewBox />;
 };
 
 export default SvgCreator;

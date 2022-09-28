@@ -11,7 +11,6 @@ const NavAppBarStyled = styled(AppBar)<AppBarProps>(({ theme, width, height }) =
   width: width,
   height: height,
   padding: '24px 24px 12px 20px',
-  marginBottom: 16,
   left: 0,
   boxSizing: 'border-box',
   borderRight: '1px solid rgba(10, 37, 64, 0.32)'
