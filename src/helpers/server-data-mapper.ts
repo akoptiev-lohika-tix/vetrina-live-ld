@@ -1,6 +1,6 @@
-import { Page, PageFromServer, SubPage } from '../interfaces';
+import { Page, PageFromServer, Store, StoreFromServer, SubPage } from '../interfaces';
 
-export const serverDataMapper = (data: PageFromServer[]): Page[] => {
+export const serverPagesMapper = (data: PageFromServer[]): Page[] => {
   return data.map((item, i): Page => {
     if (item.subPages) {
       const mappedSubPages = item.subPages.map((subPage, k): SubPage => {
@@ -21,5 +21,14 @@ export const serverDataMapper = (data: PageFromServer[]): Page[] => {
         id: i
       };
     }
+  });
+};
+
+export const serverStoresMapper = (data: StoreFromServer[]): Store[] => {
+  return data.map((item, i): Store => {
+    return {
+      ...item,
+      id: i
+    };
   });
 };
