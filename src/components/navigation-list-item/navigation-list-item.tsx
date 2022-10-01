@@ -78,7 +78,7 @@ const NavigationListItem: React.FC<Props> = ({ page, selectedId, onListItemClick
       </ListItemStyled>
       {page.subPages && (
         <Collapse in={isExpandedOpen} timeout="auto" unmountOnExit>
-          <SharedListStyled background={palette.secondary.light} paddingtop={6}>
+          <SharedListStyled background={palette.secondary.light} paddingtop={6} paddingbottom={6}>
             {page.subPages.map((subPage) => (
               <ListItemStyled
                 key={subPage.id}

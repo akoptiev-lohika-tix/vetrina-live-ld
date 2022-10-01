@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 
 import { useTypedSelector } from '../../redux/hooks';
 import { Page } from '../../interfaces';
-import { SharedListStyled } from '../shared-styled';
-import DividerStyled from './divider-styled';
+import { SharedListStyled, DividerStyled } from '../shared-styled';
 import { useTheme } from '@mui/material';
 import NavigationListItem from '../navigation-list-item/navigation-list-item';
 
 export const NavigationList: React.FC = () => {
   const { pages } = useTypedSelector((state) => state.pages);
   const { palette } = useTheme();
-
   const [selectedId, setSelectedId] = useState<Page['id']>(0);
 
   const handleItemClick = (id: Page['id']): void => {
@@ -18,7 +16,7 @@ export const NavigationList: React.FC = () => {
   };
 
   return (
-    <SharedListStyled paddingtop={15}>
+    <SharedListStyled paddingtop={15} marginbottom={60}>
       {pages.map((page) => (
         <>
           <NavigationListItem

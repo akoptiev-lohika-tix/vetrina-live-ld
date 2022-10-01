@@ -176,7 +176,7 @@
   "stores": [
     {
       "name": "fenohStore",
-      "disaplayName": "Fenoh Store",
+      "displayName": "Fenoh Store",
       "data": {
         "visitors": 1824,
         "ordersNew": 14,
@@ -195,6 +195,6 @@
       }
     },
 
-    { "name": "secondStore", "disaplayName": "Second Store" }
+    { "name": "secondStore", "displayName": "Second Store" }
   ]
 }
