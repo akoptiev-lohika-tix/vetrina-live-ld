@@ -11,7 +11,6 @@ export const fetchStores = () => {
       dispatch({ type: storesActionsEnum.FETCH_STORES });
 
       const response = await axios.get(BASE_DATA_URL + '/stores.json');
-
       const mappedResponse = serverStoresMapper(response.data);
 
       dispatch({ type: storesActionsEnum.FETCH_STORES_SUCCESS, payload: mappedResponse });

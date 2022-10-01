@@ -5,8 +5,8 @@ import { pagesAction, pagesActionsEnum } from '../types';
 import { BASE_DATA_URL, LOAD_DATA_ERROR } from '../../constants';
 import { serverPagesMapper } from '../../helpers';
 
-export const fetchMainPages = () => {
-  return async (dispatch: Dispatch<pagesAction>) => {
+export const fetchPages = (): unknown => {
+  return async (dispatch: Dispatch<pagesAction>): Promise<void> => {
     try {
       dispatch({ type: pagesActionsEnum.FETCH_PAGES });
 

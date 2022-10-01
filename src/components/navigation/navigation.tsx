@@ -15,10 +15,11 @@ import DrawerStyled from './drawer-styled';
 import NavigationSelect from '../navigation-select/navigation-select';
 
 const Navigation: React.FC = () => {
-  const { fetchMainPages } = useActions();
+  const { fetchPages, fetchStores } = useActions();
 
   useEffect(() => {
-    fetchMainPages();
+    fetchPages();
+    fetchStores();
   }, []);
 
   const [open, setOpen] = useState(true);

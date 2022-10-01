@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 
 import { useTypedSelector } from '../../redux/hooks';
 import { Page } from '../../interfaces';
-import { SharedListStyled } from '../shared-styled';
-import DividerStyled from './divider-styled';
+import { SharedListStyled, DividerStyled } from '../shared-styled';
 import { useTheme } from '@mui/material';
 import NavigationListItem from '../navigation-list-item/navigation-list-item';
 
