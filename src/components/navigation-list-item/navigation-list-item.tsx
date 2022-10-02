@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { Collapse, Typography, useTheme } from '@mui/material';
 import ListItemText from '@mui/material/ListItemText';
 
-import SvgCreator from '../svg-creator/svg-creator';
 import ListItemStyled from './list-item-styled';
 import { Page, SubPage } from '../../interfaces';
 import { useExpandedIcon } from '../../hooks/useExpandedIcon';
 import ListItemButtonStyled from './list-item-button-styled';
 import { SharedBoxStyled, SharedListStyled } from '../shared-styled';
 import ListItemIconStyled from './list-item-icon-styled';
+
+import { SvgCreator } from '../../helpers';
 
 type Props = {
   page: Page;
@@ -60,7 +61,7 @@ const NavigationListItem: React.FC<Props> = ({ page, selectedId, onListItemClick
           color={isActive && !isExpandedOpen ? palette.secondary.main : palette.primary.dark}
           onClick={() => onListItemClick(page.id)}>
           <ListItemIconStyled width={36}>
-            <SvgCreator iconName={'Customers'} />
+            <SvgCreator iconName={page.iconName} color={palette.primary.main} />
           </ListItemIconStyled>
           <ListItemText primary={page.displayName} />
           {useExpandedIcon(page, isExpandedOpen, toggleExpandedOpen)}

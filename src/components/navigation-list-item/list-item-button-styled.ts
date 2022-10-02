@@ -2,8 +2,8 @@ import { styled, ListItemButton } from '@mui/material';
 import { ListItemButtonProps as MuiListItemButtonProps } from '@mui/material/ListItemButton';
 
 interface ListItemButtonProps extends MuiListItemButtonProps {
-  height: number;
-  paddingleft: string;
+  height?: number;
+  paddingleft?: string;
   backgroundcolor?: string;
   color?: string;
 }
@@ -29,8 +29,7 @@ const ListItemButtonStyled = styled(ListItemButton)<ListItemButtonProps>(
 
     '& .MuiSvgIcon-root': {
       width: 20,
-      height: 20,
-      color: 'red'
+      height: 20
     }
   })
 );
