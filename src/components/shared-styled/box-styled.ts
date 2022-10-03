@@ -10,7 +10,7 @@ interface BoxProps extends MuiBoxProps {
   color?: string;
 }
 
-export const SharedBoxStyled = styled(Box)<BoxProps>(
+export const BoxStyled = styled(Box)<BoxProps>(
   ({ height, borderRadius, width, marginRight, color, bgcolor }) => ({
     height: height,
     width: width,
@@ -20,6 +20,7 @@ export const SharedBoxStyled = styled(Box)<BoxProps>(
     color: color,
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    boxSizing: 'border-box'
   })
 ) as typeof Box;

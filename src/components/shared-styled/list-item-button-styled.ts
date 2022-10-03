@@ -3,33 +3,25 @@ import { ListItemButtonProps as MuiListItemButtonProps } from '@mui/material/Lis
 
 interface ListItemButtonProps extends MuiListItemButtonProps {
   height?: number;
-  paddingleft?: string;
-  backgroundcolor?: string;
+  paddingleft?: number | string;
   color?: string;
 }
 
 const ListItemButtonStyled = styled(ListItemButton)<ListItemButtonProps>(
-  ({ theme, height, paddingleft, backgroundcolor, color }) => ({
+  ({ theme, height, paddingleft, color }) => ({
+    padding: 0,
+    paddingLeft: paddingleft,
     height: height,
-    padding: `8px 0 8px ${paddingleft}`,
-    backgroundColor: backgroundcolor,
-    borderRadius: 4,
     color: color,
-    paddingRight: 24,
 
     ':hover': {
-      backgroundColor: backgroundcolor
+      backgroundColor: 'transparent'
     },
 
     '& .MuiTypography-root': {
       fontWeight: theme.typography.fontWeightRegular,
       fontSize: '14px',
       lineHeight: '16px'
-    },
-
-    '& .MuiSvgIcon-root': {
-      width: 20,
-      height: 20
     }
   })
 );

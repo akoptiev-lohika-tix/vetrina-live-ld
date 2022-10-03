@@ -3,7 +3,7 @@ import React from 'react';
 import { ThemeProvider, createTheme, Shadows } from '@mui/material/styles';
 
 import './App.css';
-import Dashboard from './pages/dashboard/dashboard';
+import AppLayout from './components/app-layout/app-layout';
 
 const theme = createTheme({
   palette: {
@@ -53,7 +53,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <Dashboard />
+        <AppLayout />
       </div>
     </ThemeProvider>
   );

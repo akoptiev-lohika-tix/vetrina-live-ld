@@ -8,13 +8,13 @@ interface ListProps extends MuiListProps {
   marginbottom?: number;
 }
 
-export const SharedListStyled = styled(List)<ListProps>(
+export const ListStyled = styled(List)<ListProps>(
   ({ background, paddingtop, marginbottom, paddingbottom }) => ({
     background: background,
-    padding: 0,
-    boxSizing: 'border-box',
     paddingTop: paddingtop,
     paddingBottom: paddingbottom,
-    marginBottom: marginbottom
+    marginBottom: marginbottom,
+    padding: 0,
+    boxSizing: 'border-box'
   })
 );
