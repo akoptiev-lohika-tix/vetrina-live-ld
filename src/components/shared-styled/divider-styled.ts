@@ -13,6 +13,7 @@ export const DividerStyled = styled(Divider)<DividerProps>(
     marginBottom: marginbottom,
     color: color,
     height: 1,
+    width: '100%',
     border: 0
   })
 );
