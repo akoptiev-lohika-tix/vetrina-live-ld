@@ -20,6 +20,7 @@ import ChevronUpIcon from '../icons/chevron-up-icon';
 import ChevronDownIcon from '../icons/chevron-down-icon';
 import MenuIcon from '../icons/menu-icon';
 import LogoIcon from '../icons/logo-icon';
+import LightningIcon from '../icons/lightning-icon';
 
 type Props = {
   iconName: string;
@@ -46,7 +47,8 @@ const iconsMap: Record<string, any> = {
   ChevronUp: ChevronUpIcon,
   ChevronDown: ChevronDownIcon,
   Menu: MenuIcon,
-  Logo: LogoIcon
+  Logo: LogoIcon,
+  Lightning: LightningIcon
 };
 
 export const SvgCreator: React.FC<Props> = ({ iconName, color }) => {

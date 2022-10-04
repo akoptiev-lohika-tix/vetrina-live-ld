@@ -1,30 +1,32 @@
-import { setDisplay, SvgCreator } from '../../helpers';
-import ListItemText from '@mui/material/ListItemText';
-import { useExpandedIcon } from '../../hooks/useExpandedIcon';
-import { DividerStyled, ListStyled, ListItemStyled, BoxStyled } from '../shared-styled';
 import * as React from 'react';
-import { Page } from '../../interfaces';
 import { useEffect, useState } from 'react';
+
 import { useTheme } from '@mui/material/styles';
 import { Collapse, ListItemIcon } from '@mui/material';
+import ListItemText from '@mui/material/ListItemText';
 
+import { useExpandedIcon } from '../../hooks/useExpandedIcon';
+import { DividerStyled, ListStyled, ListItemStyled, BoxStyled } from '../shared-styled';
+import { Page, SubPage } from '../../interfaces';
 import ListItemButtonStyled from '../shared-styled/list-item-button-styled';
+import { setDisplay, SvgCreator } from '../../helpers';
+import { useActions, useTypedSelector } from '../../redux/hooks';
 
 type Props = {
   page: Page;
   open: boolean;
-  selectedId: Page['id'];
-  onListItemClick: (id: Page['id']) => void;
 };
 
-const NavListItem: React.FC<Props> = ({ page, open, selectedId, onListItemClick }) => {
+const NavListItem: React.FC<Props> = ({ page, open }) => {
   const { palette } = useTheme();
   const [isExpandedOpen, setIsExpandedOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const { activePageName } = useTypedSelector((state) => state.pages);
+  const { setActivePage } = useActions();
 
   useEffect(() => {
-    checkIsPageActive(selectedId);
-  }, [selectedId]);
+    checkIsPageActive(activePageName);
+  }, [activePageName]);
 
   useEffect(() => {
     !open && setIsExpandedOpen(false);
@@ -34,8 +36,8 @@ const NavListItem: React.FC<Props> = ({ page, open, selectedId, onListItemClick 
     setIsExpandedOpen(!isExpandedOpen);
   };
 
-  const checkIsPageActive = (id: Page['id']) => {
-    if (page.id === id) {
+  const checkIsPageActive = (pageName: Page['displayName'] | SubPage['displayName'] | null) => {
+    if (activePageName && page.displayName === pageName) {
       setIsActive(true);
     } else {
       setIsActive(false);
@@ -66,7 +68,7 @@ const NavListItem: React.FC<Props> = ({ page, open, selectedId, onListItemClick 
             height={32}
             color={isActive ? palette.secondary.main : palette.primary.dark}
             onClick={() => {
-              onListItemClick(page.id);
+              setActivePage(page.displayName);
             }}>
             <ListItemIcon
               sx={{
@@ -109,7 +111,11 @@ const NavListItem: React.FC<Props> = ({ page, open, selectedId, onListItemClick 
             {page.subPages.map((subPage) => (
               <ListItemStyled
                 key={subPage.id}
-                color={subPage.id === selectedId ? palette.secondary.main : palette.primary.dark}
+                color={
+                  subPage.displayName === activePageName
+                    ? palette.secondary.main
+                    : palette.primary.dark
+                }
                 disablePadding
                 marginbottom={0}>
                 <ListItemButtonStyled
@@ -118,7 +124,7 @@ const NavListItem: React.FC<Props> = ({ page, open, selectedId, onListItemClick 
                   height={36}
                   paddingleft={56}
                   onClick={() => {
-                    onListItemClick(subPage.id);
+                    setActivePage(subPage.displayName);
                   }}>
                   <ListItemText primary={subPage.displayName} />
                 </ListItemButtonStyled>

@@ -8,10 +8,11 @@ interface BoxProps extends MuiBoxProps {
   marginRight?: number;
   borderRadius?: number;
   color?: string;
+  gap?: number;
 }
 
 export const BoxStyled = styled(Box)<BoxProps>(
-  ({ height, borderRadius, width, marginRight, color, bgcolor }) => ({
+  ({ height, borderRadius, width, marginRight, color, bgcolor, gap }) => ({
     height: height,
     width: width,
     bgcolor: bgcolor,
@@ -21,6 +22,7 @@ export const BoxStyled = styled(Box)<BoxProps>(
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    gap: gap
   })
 ) as typeof Box;

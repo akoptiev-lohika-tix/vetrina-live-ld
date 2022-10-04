@@ -1,23 +1,19 @@
 import * as React from 'react';
+import { useEffect } from 'react';
+
 import { styled, Theme, useTheme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-// import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 
 import { SvgCreator } from '../../helpers';
 import { IconButtonStyled, ListStyled } from '../shared-styled';
-import { useCallback, useEffect, useState } from 'react';
 import { useActions, useTypedSelector } from '../../redux/hooks';
-
 import NavListItem from '../nav-list-item/nav-list-item';
-import { Page } from '../../interfaces';
 import NavigationSelect from '../navigation-select/navigation-select';
+import AppBar from '../app-bar/app-bar';
 
 const drawerOpenedWidth = 256;
-const drawerClosedWidth = 72;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerOpenedWidth,
@@ -49,30 +45,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar
 }));
 
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open'
-})<AppBarProps>(({ theme, open }) => ({
-  marginLeft: drawerClosedWidth,
-  height: '60px',
-  width: `calc(100% - ${drawerClosedWidth}px)`,
-  zIndex: theme.zIndex.drawer + 1,
-  transition: theme.transitions.create(['width', 'margin'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerOpenedWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  })
-}));
-
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     width: drawerOpenedWidth,
@@ -95,11 +67,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 const AppLayout = () => {
-  const { palette } = useTheme();
   const [open, setOpen] = React.useState(true);
+  const { palette } = useTheme();
   const { pages } = useTypedSelector((state) => state.pages);
   const { fetchPages, fetchStores } = useActions();
-  const [selectedId, setSelectedId] = useState<Page['id']>(0);
 
   useEffect(() => {
     fetchPages();
@@ -109,26 +80,10 @@ const AppLayout = () => {
   const handleDrawerOpenClose = (): void => {
     setOpen(!open);
   };
-  const handleItemClick = useCallback(
-    (id: Page['id']): void => {
-      setSelectedId(id);
-    },
-    [selectedId]
-  );
 
   return (
     <Box sx={{ display: 'flex', height: '100%' }}>
-      <AppBar position="fixed" open={open}>
-        <Toolbar
-          sx={{
-            minHeight: 0,
-            height: '60px'
-          }}>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <AppBar open={open} />
       <Drawer variant="permanent" open={open}>
         <DrawerHeader
           sx={{
@@ -146,13 +101,7 @@ const AppLayout = () => {
         </DrawerHeader>
         <ListStyled marginbottom={60}>
           {pages.map((page) => (
-            <NavListItem
-              key={page.id}
-              page={page}
-              open={open}
-              onListItemClick={handleItemClick}
-              selectedId={selectedId}
-            />
+            <NavListItem key={page.id} page={page} open={open} />
           ))}
         </ListStyled>
         {open && <NavigationSelect />}

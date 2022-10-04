@@ -4,6 +4,7 @@ import axios from 'axios';
 import { pagesAction, pagesActionsEnum } from '../types';
 import { BASE_DATA_URL, LOAD_DATA_ERROR } from '../../constants';
 import { serverPagesMapper } from '../../helpers';
+import { Page, SubPage } from '../../interfaces';
 
 export const fetchPages = (): unknown => {
   return async (dispatch: Dispatch<pagesAction>): Promise<void> => {
@@ -19,4 +20,10 @@ export const fetchPages = (): unknown => {
       dispatch({ type: pagesActionsEnum.FETCH_PAGES_ERROR, payload: LOAD_DATA_ERROR });
     }
   };
+};
+
+export const setActivePage = (
+  pageName: Page['displayName'] | SubPage['displayName']
+): pagesAction => {
+  return { type: pagesActionsEnum.SET_ACTIVE_PAGE, payload: pageName };
 };
