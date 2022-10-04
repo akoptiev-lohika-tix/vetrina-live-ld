@@ -58,7 +58,7 @@ const NavigationSelect: React.FC = () => {
   return (
     <Box sx={classes.box}>
       <TypographyStyled
-        fontSize={'15px'}
+        fontSize={15}
         fontWeight={typography.fontWeightMedium}
         lineHeight={'20px'}
         color={palette.primary.light}>

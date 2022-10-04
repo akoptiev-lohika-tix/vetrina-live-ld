@@ -10,21 +10,20 @@ export const storesReducer = (state = initialState, action: storesAction): store
   switch (action.type) {
     case storesActionsEnum.FETCH_STORES:
       return {
-        stores: [],
-        loadingStores: true,
-        errorStores: null
+        ...state,
+        loadingStores: true
       };
 
     case storesActionsEnum.FETCH_STORES_SUCCESS:
       return {
+        ...state,
         stores: action.payload,
-        loadingStores: false,
-        errorStores: null
+        loadingStores: false
       };
 
     case storesActionsEnum.FETCH_STORES_ERROR:
       return {
-        stores: [],
+        ...state,
         loadingStores: false,
         errorStores: action.payload
       };

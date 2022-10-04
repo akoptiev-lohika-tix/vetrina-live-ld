@@ -1,3 +1,4 @@
+import { Notification } from './notification-interface';
 export interface StoreData {
   visitors: number;
   ordersNew: number;
@@ -5,5 +6,5 @@ export interface StoreData {
   currency: string;
   earnings: number;
   shopConfigurationProgress: number;
-  notifications: Notification;
+  notifications: Notification[];
 }
