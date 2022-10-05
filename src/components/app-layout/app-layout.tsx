@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { styled, Theme, useTheme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-import Typography from '@mui/material/Typography';
 
 import { SvgCreator } from '../../helpers';
 import { IconButtonStyled, ListStyled } from '../shared-styled';
@@ -12,11 +11,14 @@ import { useActions, useTypedSelector } from '../../redux/hooks';
 import NavListItem from '../nav-list-item/nav-list-item';
 import NavigationSelect from '../navigation-select/navigation-select';
 import AppBar from '../app-bar/app-bar';
+import Dashboard from '../../pages/dashboard/dashboard';
+import { appBarCollapsed, appBarHeight } from '../../constants';
 
 const drawerOpenedWidth = 256;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerOpenedWidth,
+  height: 'max-content',
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen
@@ -25,6 +27,7 @@ const openedMixin = (theme: Theme): CSSObject => ({
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
+  height: 'max-content',
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen
@@ -47,9 +50,9 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
-    width: drawerOpenedWidth,
+    width: appBarCollapsed,
     flexShrink: 0,
-    // whiteSpace: 'nowrap',
+    whiteSpace: 'nowrap',
     boxSizing: 'border-box',
     ...(open && {
       ...openedMixin(theme),
@@ -82,7 +85,7 @@ const AppLayout = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', height: '100%' }}>
+    <Box sx={{ display: 'flex', height: '100vh' }}>
       <AppBar open={open} />
       <Drawer variant="permanent" open={open}>
         <DrawerHeader
@@ -91,7 +94,6 @@ const AppLayout = () => {
             gap: 12,
             justifyContent: 'flex-start',
             paddingLeft: 2.5,
-            height: '60px',
             mb: '16px'
           }}>
           {open && <SvgCreator iconName={'Logo'} />}
@@ -106,31 +108,9 @@ const AppLayout = () => {
         </ListStyled>
         {open && <NavigationSelect />}
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box sx={{ flexGrow: 1, p: 3, padding: 0, height: appBarHeight }}>
         <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-          facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-          tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-          consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-          vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-          hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-          tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-          accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+        <Dashboard />
       </Box>
     </Box>
   );
