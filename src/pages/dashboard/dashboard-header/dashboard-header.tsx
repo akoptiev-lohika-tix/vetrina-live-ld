@@ -1,14 +1,22 @@
 import React from 'react';
 
 import { Container } from '@mui/material';
-import { BoxStyled, TypographyStyled } from '../../../components/shared-styled';
-
-import { dashBoardBannerHeight, WELCOME_TEXT } from '../../../constants';
 import { useTheme } from '@mui/material/styles';
+
+import { BoxStyled, TypographyStyled } from '../../../components/shared-styled';
+import { dashBoardBannerHeight, FENOH_STORE_LINK, WELCOME_TEXT } from '../../../constants';
+import { useLink } from '../../../hooks';
 
 const styles = {
   box: {
     background: 'linear-gradient(180deg, #21B8F9 0%, rgba(33, 184, 249, 0) 132.05%)'
+  },
+  link: {
+    color: '#ffffff',
+    fontFamily: 'Source Sans Pro, sans-serif',
+    lineHeight: '22px',
+    fontWeight: 500,
+    gap: 16
   }
 };
 
@@ -30,7 +38,7 @@ const DashboardHeader: React.FC = () => {
           color={palette.common.white}>
           {WELCOME_TEXT}
         </TypographyStyled>
-        <BoxStyled>Link</BoxStyled>
+        {useLink({ ...styles.link, linkText: FENOH_STORE_LINK })}
       </BoxStyled>
     </Container>
   );

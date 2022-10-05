@@ -7,6 +7,9 @@ interface BoxProps extends MuiBoxProps {
   padding?: string;
   bgcolor?: string;
   marginRight?: number;
+  marginTop?: number;
+  marginBottom?: number;
+  marginLeft?: number;
   borderRadius?: number;
   color?: string;
   gap?: number;
@@ -20,6 +23,9 @@ export const BoxStyled = styled(Box)<BoxProps>(
     borderRadius,
     width,
     marginRight,
+    marginTop,
+    marginBottom,
+    marginLeft,
     color,
     bgcolor,
     gap,
@@ -32,6 +38,9 @@ export const BoxStyled = styled(Box)<BoxProps>(
     padding: padding,
     bgcolor: bgcolor,
     marginRight: marginRight,
+    marginTop: marginTop,
+    marginLeft: marginLeft,
+    marginBottom: marginBottom,
     borderRadius: borderRadius,
     color: color,
     display: 'flex',

@@ -106,7 +106,7 @@ const AppLayout = () => {
             <NavListItem key={page.id} page={page} open={open} />
           ))}
         </ListStyled>
-        {open && <NavigationSelect />}
+        <NavigationSelect open={open} />
       </Drawer>
       <Box sx={{ flexGrow: 1, p: 3, padding: 0, height: appBarHeight }}>
         <DrawerHeader />

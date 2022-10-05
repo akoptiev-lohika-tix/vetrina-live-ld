@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Collapse, ListItemIcon } from '@mui/material';
 import ListItemText from '@mui/material/ListItemText';
+import Badge from '@mui/material/Badge';
 
 import { useExpandedIcon } from '../../hooks/useExpandedIcon';
 import { DividerStyled, ListStyled, ListItemStyled, BoxStyled } from '../shared-styled';
@@ -11,6 +12,21 @@ import { Page, SubPage } from '../../interfaces';
 import ListItemButtonStyled from '../shared-styled/list-item-button-styled';
 import { setDisplay, SvgCreator } from '../../helpers';
 import { useActions, useTypedSelector } from '../../redux/hooks';
+
+const styles = {
+  badge: {
+    '& .MuiBadge-badge': {
+      width: '24px',
+      height: '24px',
+      fontSize: '12px',
+      fontFamily: 'Source Sans Pro, sans-serif',
+      fontWeight: 600,
+      padding: 0,
+      borderRadius: 12,
+      color: '#ffffff'
+    }
+  }
+};
 
 type Props = {
   page: Page;
@@ -99,6 +115,7 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
               ...(!open && { display: 'none' })
             }}>
             {useExpandedIcon(page, isExpandedOpen, toggleExpandedOpen, setDisplay(open))}
+            {page.hasBadge && <Badge sx={styles.badge} badgeContent={14} color="success" />}
           </ListItemIcon>
         </BoxStyled>
       </ListItemStyled>
