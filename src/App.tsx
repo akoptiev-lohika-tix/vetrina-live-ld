@@ -49,6 +49,11 @@ const theme = createTheme({
         }
       }
     }
+  },
+  mixins: {
+    toolbar: {
+      minHeight: 60
+    }
   }
 });
 

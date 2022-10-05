@@ -7,14 +7,16 @@ interface TypographyProps extends MuiTypographyProps {
   fontWeight?: any;
   lineHeight?: string;
   color?: string;
+  textdecorationline?: string;
 }
 
 export const TypographyStyled = styled(Typography)<TypographyProps>(
-  ({ fontfamily, fontSize, fontWeight, lineHeight, color }) => ({
+  ({ fontfamily, fontSize, fontWeight, lineHeight, color, textdecorationline = 'none' }) => ({
     fontfamily: fontfamily,
     fontSize: fontSize,
     fontWeight: fontWeight,
     lineHeight: lineHeight,
-    color: color
+    color: color,
+    textDecorationLine: textdecorationline
   })
 );

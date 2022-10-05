@@ -1,38 +1,24 @@
 import React, { useState } from 'react';
 
-import { Box, FormControl, MenuItem, Select, SelectChangeEvent, useTheme } from '@mui/material';
+import { FormControl, MenuItem, Select, SelectChangeEvent, useTheme } from '@mui/material';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 
 import { useTypedSelector } from '../../redux/hooks';
 import { NAV_SELECT_LABEL } from '../../constants';
-import { TypographyStyled, InputStyled } from '../shared-styled';
+import { TypographyStyled, InputStyled, BoxStyled } from '../shared-styled';
 
-const NavigationSelect: React.FC = () => {
+type Props = {
+  open: boolean;
+};
+
+const NavigationSelect: React.FC<Props> = ({ open }) => {
   const { stores } = useTypedSelector((state) => state.stores);
   const [value, setValue] = useState('0');
   const { palette, typography, shadows } = useTheme();
 
-  const getBorders = (index: number, list: any[]): Record<string, string> | undefined => {
-    if (index !== list.indexOf(list.at(-1))) {
-      return {
-        borderBottom: '1px solid rgba(10, 37, 64, 0.08)'
-      };
-    }
-  };
-
-  const handleSelectChange = (event: SelectChangeEvent): void => {
-    setValue(event.target.value);
-  };
-
-  const classes = {
+  const styles = {
     box: {
-      width: '216px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '16px',
-      alignItems: 'flex-start',
-      marginBottom: '24px',
-      marginLeft: '16px'
+      flexDirection: 'column'
     },
     menu: {
       PaperProps: {
@@ -55,8 +41,35 @@ const NavigationSelect: React.FC = () => {
     }
   };
 
+  const getBorders = (index: number, list: any[]): Record<string, string> | undefined => {
+    if (index !== list.indexOf(list.at(-1))) {
+      return {
+        borderBottom: '1px solid rgba(10, 37, 64, 0.08)'
+      };
+    }
+  };
+
+  const handleSelectChange = (event: SelectChangeEvent): void => {
+    setValue(event.target.value);
+  };
+
+  const getVisibility = (): Record<string, string> => {
+    return !open
+      ? {
+          ...styles.box,
+          visibility: 'hidden'
+        }
+      : styles.box;
+  };
+
   return (
-    <Box sx={classes.box}>
+    <BoxStyled
+      sx={getVisibility}
+      width={216}
+      gap={16}
+      alignItems={'flex-start'}
+      marginBottom={24}
+      marginLeft={16}>
       <TypographyStyled
         fontSize={15}
         fontWeight={typography.fontWeightMedium}
@@ -79,10 +92,10 @@ const NavigationSelect: React.FC = () => {
             />
           }
           IconComponent={KeyboardArrowDownRoundedIcon}
-          MenuProps={classes.menu}>
+          MenuProps={styles.menu}>
           {stores.map((store, i, arr) => (
             <MenuItem
-              sx={classes.menuItem}
+              sx={styles.menuItem}
               value={store.id}
               key={store.id}
               style={getBorders(i, arr)}>
@@ -91,7 +104,7 @@ const NavigationSelect: React.FC = () => {
           ))}
         </Select>
       </FormControl>
-    </Box>
+    </BoxStyled>
   );
 };
 
