@@ -2,8 +2,8 @@ import React from 'react';
 
 import { ThemeProvider, createTheme, Shadows } from '@mui/material/styles';
 
-import './App.css';
 import AppLayout from './components/app-layout/app-layout';
+import './App.css';
 
 const theme = createTheme({
   palette: {

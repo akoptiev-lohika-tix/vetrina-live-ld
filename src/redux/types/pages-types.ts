@@ -2,7 +2,7 @@ import { Page, SubPage } from '../../interfaces';
 
 export interface pagesState {
   pages: Page[];
-  loading: boolean;
+  loadingPages: boolean;
   error: string | null;
   activePageName: Page['displayName'] | SubPage['displayName'] | null;
 }

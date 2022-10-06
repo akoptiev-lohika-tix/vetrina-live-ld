@@ -1,8 +1,8 @@
-import { pagesAction, pagesActionsEnum, pagesState } from '../types/pages-types';
+import { pagesAction, pagesActionsEnum, pagesState } from '../types';
 
 const initialState: pagesState = {
   pages: [],
-  loading: false,
+  loadingPages: false,
   error: null,
   activePageName: null
 };
@@ -12,13 +12,13 @@ export const pagesReducer = (state = initialState, action: pagesAction): pagesSt
     case pagesActionsEnum.FETCH_PAGES:
       return {
         ...state,
-        loading: true
+        loadingPages: true
       };
 
     case pagesActionsEnum.FETCH_PAGES_SUCCESS:
       return {
         ...state,
-        loading: false,
+        loadingPages: false,
         pages: action.payload,
         activePageName: action.payload[0].displayName
       };
@@ -26,7 +26,7 @@ export const pagesReducer = (state = initialState, action: pagesAction): pagesSt
     case pagesActionsEnum.FETCH_PAGES_ERROR:
       return {
         ...state,
-        loading: false,
+        loadingPages: false,
         error: action.payload
       };
 
