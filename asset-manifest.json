@@ -1,17 +1,15 @@
 {
   "files": {
-    "main.css": "/vetrina-live-ld/static/css/main.073c9b0a.css",
-    "main.js": "/vetrina-live-ld/static/js/main.84074cad.js",
+    "main.css": "/vetrina-live-ld/static/css/main.59b478d0.css",
+    "main.js": "/vetrina-live-ld/static/js/main.1de94e4b.js",
     "static/js/787.138e1a45.chunk.js": "/vetrina-live-ld/static/js/787.138e1a45.chunk.js",
-    "static/media/logo.svg": "/vetrina-live-ld/static/media/logo.08b9ce84b21a6eda02e8a038fa22b016.svg",
     "index.html": "/vetrina-live-ld/index.html",
-    "static/media/menunav-icon.svg": "/vetrina-live-ld/static/media/menunav-icon.b1fad667cdf9baf8215fc508f1fa3965.svg",
-    "main.073c9b0a.css.map": "/vetrina-live-ld/static/css/main.073c9b0a.css.map",
-    "main.84074cad.js.map": "/vetrina-live-ld/static/js/main.84074cad.js.map",
+    "main.59b478d0.css.map": "/vetrina-live-ld/static/css/main.59b478d0.css.map",
+    "main.1de94e4b.js.map": "/vetrina-live-ld/static/js/main.1de94e4b.js.map",
     "787.138e1a45.chunk.js.map": "/vetrina-live-ld/static/js/787.138e1a45.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.84074cad.js"
+    "static/css/main.59b478d0.css",
+    "static/js/main.1de94e4b.js"
   ]
 }
