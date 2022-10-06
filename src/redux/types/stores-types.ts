@@ -1,15 +1,21 @@
-import { Store } from '../../interfaces';
+import { Store, StoreFromServer } from '../../interfaces';
 
 export interface storesState {
   stores: Store[];
   loadingStores: boolean;
   errorStores: string | null;
+  activeStore: Store | StoreFromServer | null;
+  loadingActiveStore: boolean;
+  errorActiveStore: string | null;
 }
 
 export enum storesActionsEnum {
   FETCH_STORES = 'FETCH_STORES',
   FETCH_STORES_SUCCESS = 'FETCH_STORES_SUCCESS',
-  FETCH_STORES_ERROR = 'FETCH_STORES_ERROR'
+  FETCH_STORES_ERROR = 'FETCH_STORES_ERROR',
+  FETCH_ACTIVE_STORE = 'FETCH_ACTIVE_STORE',
+  FETCH_ACTIVE_STORE_SUCCESS = 'FETCH_ACTIVE_STORE_SUCCESS',
+  FETCH_ACTIVE_STORE_ERROR = 'FETCH_ACTIVE_STORE_ERROR'
 }
 
 interface FetchStoresActions {
@@ -26,4 +32,24 @@ interface FetchStoresErrorActions {
   payload: string;
 }
 
-export type storesAction = FetchStoresActions | FetchStoresSuccessActions | FetchStoresErrorActions;
+interface FetchActiveStoreActions {
+  type: storesActionsEnum.FETCH_ACTIVE_STORE;
+}
+
+interface FetchActiveStoreSuccessActions {
+  type: storesActionsEnum.FETCH_ACTIVE_STORE_SUCCESS;
+  payload: Store | StoreFromServer;
+}
+
+interface FetchActiveStoreErrorActions {
+  type: storesActionsEnum.FETCH_ACTIVE_STORE_ERROR;
+  payload: string;
+}
+
+export type storesAction =
+  | FetchStoresActions
+  | FetchStoresSuccessActions
+  | FetchStoresErrorActions
+  | FetchActiveStoreActions
+  | FetchActiveStoreSuccessActions
+  | FetchActiveStoreErrorActions;

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FormControl, MenuItem, Select, SelectChangeEvent, useTheme } from '@mui/material';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 
-import { useTypedSelector } from '../../redux/hooks';
+import { useActions, useTypedSelector } from '../../redux/hooks';
 import { NAV_SELECT_LABEL } from '../../constants';
 import { TypographyStyled, InputStyled, BoxStyled } from '../shared-styled';
 
@@ -12,9 +12,11 @@ type Props = {
 };
 
 const NavigationSelect: React.FC<Props> = ({ open }) => {
-  const { stores } = useTypedSelector((state) => state.stores);
-  const [value, setValue] = useState('0');
+  const [value, setValue] = useState(0);
   const { palette, typography, shadows } = useTheme();
+
+  const { stores } = useTypedSelector((state) => state.stores);
+  const { fetchActiveStore } = useActions();
 
   const styles = {
     box: {
@@ -50,8 +52,12 @@ const NavigationSelect: React.FC<Props> = ({ open }) => {
   };
 
   const handleSelectChange = (event: SelectChangeEvent): void => {
-    setValue(event.target.value);
+    setValue(Number(event.target.value));
   };
+
+  useEffect(() => {
+    fetchActiveStore(value);
+  }, [value]);
 
   const getVisibility = (): Record<string, string> => {
     return !open
@@ -79,7 +85,7 @@ const NavigationSelect: React.FC<Props> = ({ open }) => {
       </TypographyStyled>
       <FormControl fullWidth>
         <Select
-          value={value}
+          value={String(value)}
           onChange={handleSelectChange}
           input={
             <InputStyled
