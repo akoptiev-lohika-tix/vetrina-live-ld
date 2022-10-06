@@ -5,9 +5,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /*TODO - put color in other place*/
-  background: #e5e5e5;
+  background: #f8f9fb;
 }
 
 code {

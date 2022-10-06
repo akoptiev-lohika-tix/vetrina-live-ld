@@ -6,8 +6,15 @@ type Props = {
 };
 
 export const DashboardContentCard: React.FC<Props> = ({ height }) => {
+  const styles = {
+    card: {
+      borderRadius: '10px',
+      height: height
+    }
+  };
+
   return (
-    <Card sx={{ borderRadius: '10px', height: height }} elevation={2}>
+    <Card sx={styles.card} elevation={2}>
       <CardContent></CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
