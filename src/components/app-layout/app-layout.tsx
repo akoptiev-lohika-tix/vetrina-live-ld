@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { styled, Theme, useTheme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { SvgCreator } from '../../helpers';
 import { IconButtonStyled, ListStyled } from '../shared-styled';
@@ -70,9 +71,16 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 const AppLayout = () => {
+  const styles = {
+    loader: {
+      margin: 'auto'
+    }
+  };
+
   const [open, setOpen] = React.useState(true);
   const { palette } = useTheme();
-  const { pages } = useTypedSelector((state) => state.pages);
+  const { pages, loadingPages } = useTypedSelector((state) => state.pages);
+  const { stores, loadingStores } = useTypedSelector((state) => state.stores);
   const { fetchPages, fetchStores } = useActions();
 
   useEffect(() => {
@@ -86,32 +94,43 @@ const AppLayout = () => {
 
   return (
     <Box sx={{ display: 'flex', height: '100vh' }}>
-      <AppBar open={open} />
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader
-          sx={{
-            display: 'flex',
-            gap: 12,
-            justifyContent: 'flex-start',
-            paddingLeft: 2.5,
-            mb: '16px'
-          }}>
-          {open && <SvgCreator iconName={'Logo'} />}
-          <IconButtonStyled onClick={handleDrawerOpenClose} width={24} height={24} disableRipple>
-            <SvgCreator iconName={'Menu'} color={palette.primary.main} />
-          </IconButtonStyled>
-        </DrawerHeader>
-        <ListStyled marginbottom={60}>
-          {pages.map((page) => (
-            <NavListItem key={page.id} page={page} open={open} />
-          ))}
-        </ListStyled>
-        <NavigationSelect open={open} />
-      </Drawer>
-      <Box sx={{ flexGrow: 1, p: 3, padding: 0, height: appBarHeight }}>
-        <DrawerHeader />
-        <Dashboard />
-      </Box>
+      {(loadingPages || loadingStores) && (
+        <CircularProgress size={100} thickness={2} sx={styles.loader} />
+      )}
+      {stores.length && pages.length && (
+        <>
+          <AppBar open={open} />
+          <Drawer variant="permanent" open={open}>
+            <DrawerHeader
+              sx={{
+                display: 'flex',
+                gap: 12,
+                justifyContent: 'flex-start',
+                paddingLeft: 2.5,
+                mb: '16px'
+              }}>
+              {open && <SvgCreator iconName={'Logo'} />}
+              <IconButtonStyled
+                onClick={handleDrawerOpenClose}
+                width={24}
+                height={24}
+                disableRipple>
+                <SvgCreator iconName={'Menu'} color={palette.primary.main} />
+              </IconButtonStyled>
+            </DrawerHeader>
+            <ListStyled marginbottom={60}>
+              {pages.map((page) => (
+                <NavListItem key={page.id} page={page} open={open} />
+              ))}
+            </ListStyled>
+            <NavigationSelect open={open} />
+          </Drawer>
+          <Box sx={{ flexGrow: 1, p: 3, padding: 0, height: appBarHeight }}>
+            <DrawerHeader />
+            <Dashboard />
+          </Box>
+        </>
+      )}
     </Box>
   );
 };
