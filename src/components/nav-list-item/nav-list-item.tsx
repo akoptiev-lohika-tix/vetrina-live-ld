@@ -18,7 +18,7 @@ const styles = {
     '& .MuiBadge-badge': {
       width: '24px',
       height: '24px',
-      fontSize: '12px',
+      fontSize: '14px',
       fontFamily: 'Source Sans Pro, sans-serif',
       fontWeight: 600,
       padding: 0,
@@ -38,6 +38,7 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
   const [isExpandedOpen, setIsExpandedOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const { activePageName } = useTypedSelector((state) => state.pages);
+  const { activeStore } = useTypedSelector((state) => state.stores);
   const { setActivePage } = useActions();
 
   useEffect(() => {
@@ -115,7 +116,13 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
               ...(!open && { display: 'none' })
             }}>
             {useExpandedIcon(page, isExpandedOpen, toggleExpandedOpen, setDisplay(open))}
-            {page.hasBadge && <Badge sx={styles.badge} badgeContent={14} color="success" />}
+            {page.hasBadge && (
+              <Badge
+                sx={styles.badge}
+                badgeContent={activeStore?.data?.ordersNew}
+                color="success"
+              />
+            )}
           </ListItemIcon>
         </BoxStyled>
       </ListItemStyled>

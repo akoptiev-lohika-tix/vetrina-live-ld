@@ -4,8 +4,13 @@ import { Container } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 import { BoxStyled, TypographyStyled } from '../../../components/shared-styled';
-import { dashBoardBannerHeight, FENOH_STORE_LINK, WELCOME_TEXT } from '../../../constants';
+import {
+  DASHBOARD_HEADER_LINK_BASE,
+  dashBoardBannerHeight,
+  WELCOME_TEXT
+} from '../../../constants';
 import { useLink } from '../../../hooks';
+import { useTypedSelector } from '../../../redux/hooks';
 
 const styles = {
   box: {
@@ -22,6 +27,8 @@ const styles = {
 
 const DashboardHeader: React.FC = () => {
   const { palette } = useTheme();
+  const { activeStore } = useTypedSelector((state) => state.stores);
+
   return (
     <Container maxWidth="xl" disableGutters>
       <BoxStyled
@@ -38,7 +45,10 @@ const DashboardHeader: React.FC = () => {
           color={palette.common.white}>
           {WELCOME_TEXT}
         </TypographyStyled>
-        {useLink({ ...styles.link, linkText: FENOH_STORE_LINK })}
+        {useLink({
+          ...styles.link,
+          linkText: `${DASHBOARD_HEADER_LINK_BASE}/${activeStore?.path}`
+        })}
       </BoxStyled>
     </Container>
   );

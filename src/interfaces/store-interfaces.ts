@@ -3,7 +3,8 @@ import { StoreData } from './store-data-interface';
 export interface StoreFromServer {
   name: string;
   displayName: string;
-  data?: StoreData;
+  data: StoreData;
+  path: string;
 }
 
 export interface Store extends StoreFromServer {

@@ -14,7 +14,7 @@ export const DashboardContentCard: React.FC<Props> = ({ height }) => {
   };
 
   return (
-    <Card sx={styles.card} elevation={2}>
+    <Card sx={styles.card} elevation={1}>
       <CardContent></CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>

@@ -26,6 +26,7 @@ type Props = {
 
 const AppBar: React.FC<Props> = ({ open }) => {
   const { activePageName } = useTypedSelector((state) => state.pages);
+  const { activeStore } = useTypedSelector((state) => state.stores);
   const { palette, typography } = useTheme();
 
   return (
@@ -41,7 +42,10 @@ const AppBar: React.FC<Props> = ({ open }) => {
           </TypographyStyled>
           <BoxStyled gap={4}>
             <SvgCreator iconName={'Lightning'} color={palette.primary.main} />
-            <Badge sx={styles.badge} badgeContent={2} color="error">
+            <Badge
+              sx={styles.badge}
+              badgeContent={activeStore?.data?.notifications.length}
+              color="error">
               <TypographyStyled
                 color={palette.primary.main}
                 fontFamily={'Source Sans Pro, sans-serif'}

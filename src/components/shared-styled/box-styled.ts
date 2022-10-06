@@ -2,7 +2,7 @@ import { Box, styled } from '@mui/material';
 import { BoxProps as MuiBoxProps } from '@mui/material/Box';
 
 interface BoxProps extends MuiBoxProps {
-  height: number;
+  height: number | string;
   width?: number;
   padding?: string;
   bgcolor?: string;

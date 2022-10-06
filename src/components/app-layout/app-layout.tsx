@@ -125,7 +125,7 @@ const AppLayout = () => {
             </ListStyled>
             <NavigationSelect open={open} />
           </Drawer>
-          <Box sx={{ flexGrow: 1, p: 3, padding: 0, height: appBarHeight }}>
+          <Box sx={{ flexGrow: 1, p: 3, padding: 0, height: appBarHeight, position: 'relative' }}>
             <DrawerHeader />
             <Dashboard />
           </Box>

@@ -22,6 +22,9 @@ const theme = createTheme({
     error: {
       main: '#f33451'
     },
+    warning: {
+      main: '#ffa26b'
+    },
     grey: {
       400: '#e5e5e5',
       500: '#f7f7f7'
@@ -38,8 +41,7 @@ const theme = createTheme({
   shadows: [
     'none',
     '0px 4px 4px rgba(50, 50, 71, 0.08), 0px 4px 8px rgba(50, 50, 71, 0.06)',
-    '0px 4px 4px rgba(50, 50, 71, 0.08), 0px 4px 8px rgba(50, 50, 71, 0.06)',
-    ...Array(22).fill('none')
+    ...Array(23).fill('none')
   ] as Shadows,
 
   components: {

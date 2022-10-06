@@ -177,6 +177,7 @@
     {
       "name": "fenohStore",
       "displayName": "Fenoh Store",
+      "path": "/fenoh-store",
       "data": {
         "visitors": 1824,
         "ordersNew": 14,
@@ -195,6 +196,29 @@
       }
     },
 
-    { "name": "secondStore", "displayName": "Second Store" }
+    {
+      "name": "boomStore",
+      "displayName": "Boom Store",
+      "path": "/boom-store",
+      "data": {
+        "visitors": 2001,
+        "ordersNew": 27,
+        "ordersReceived": 112,
+        "currency": "USD",
+        "earnings:": 2090.98,
+        "shopConfigurationProgress": 57,
+        "notifications": [
+          {
+            "message": "Please finish configure your shop"
+          },
+          {
+            "message": "You have received a new order"
+          },
+          {
+            "message": "Please check your inbox"
+          }
+        ]
+      }
+    }
   ]
 }
