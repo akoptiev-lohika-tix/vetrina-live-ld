@@ -3,7 +3,7 @@ import { BoxProps as MuiBoxProps } from '@mui/material/Box';
 
 interface BoxProps extends MuiBoxProps {
   height: number | string;
-  width?: number;
+  width?: number | string;
   padding?: string;
   bgcolor?: string;
   marginRight?: number;

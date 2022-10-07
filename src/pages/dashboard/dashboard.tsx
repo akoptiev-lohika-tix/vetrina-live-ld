@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { Grid } from '@mui/material';
+import { Grid, useTheme } from '@mui/material';
 import LinearProgress from '@mui/material/LinearProgress';
 
 import DashboardHeader from './dashboard-header/dashboard-header';
 import DashboardContentCard from './dashboard-content-card/dashboard-content-card';
-import { BoxStyled } from '../../components/shared-styled';
+import { BoxStyled, TypographyStyled } from '../../components/shared-styled';
 import { useTypedSelector } from '../../redux/hooks';
+import { VISITORS_CARD_LINK_TEXT, VISITORS_CARD_TITLE } from '../../constants';
 
 const styles = {
   grid: {
@@ -31,6 +32,7 @@ const styles = {
 const Dashboard: React.FC = () => {
   const { loadingPages } = useTypedSelector((state) => state.pages);
   const { loadingActiveStore, activeStore } = useTypedSelector((state) => state.stores);
+  const { palette, typography } = useTheme();
 
   return (
     <>
@@ -42,35 +44,52 @@ const Dashboard: React.FC = () => {
             <Grid container spacing={3} sx={styles.grid}>
               <Grid item xs={8} container spacing={3}>
                 <Grid item xs={6}>
-                  <DashboardContentCard height={'220px'} />
+                  <DashboardContentCard
+                    headerText={VISITORS_CARD_TITLE}
+                    headerIcon={'ViewShop'}
+                    iconName={'ArrowRight'}
+                    linkColor={palette.secondary.main}
+                    linkText={VISITORS_CARD_LINK_TEXT}
+                    linkGap={20}
+                    width={'100%'}>
+                    <BoxStyled height={80} justifyContent={'flex-start'}>
+                      <TypographyStyled
+                        fontSize={42}
+                        color={palette.primary.main}
+                        fontWeight={typography.fontWeightMedium}
+                        lineHeight={'61px'}>
+                        {activeStore.data.visitors}
+                      </TypographyStyled>
+                    </BoxStyled>
+                  </DashboardContentCard>
                 </Grid>
-                <Grid item xs={6}>
-                  <DashboardContentCard height={'220px'} />
-                </Grid>
-                <Grid item xs={6}>
-                  <DashboardContentCard height={'344px'} />
-                </Grid>
-                <Grid item xs={6}>
-                  <DashboardContentCard height={'344px'} />
-                </Grid>
-                <Grid item xs={12}>
-                  <DashboardContentCard height={'617px'} />
-                </Grid>
+                {/* <Grid item xs={6}>*/}
+                {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
+                {/* </Grid>*/}
+                {/* <Grid item xs={6}>*/}
+                {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
+                {/* </Grid>*/}
+                {/* <Grid item xs={6}>*/}
+                {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
+                {/* </Grid>*/}
+                {/* <Grid item xs={12}>*/}
+                {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
+                {/* </Grid>*/}
               </Grid>
-              <Grid item xs={4} container spacing={3} sx={styles.gridItem}>
-                <Grid item xs={12}>
-                  <DashboardContentCard height={'290px'} />
-                </Grid>
-                <Grid item xs={12}>
-                  <DashboardContentCard height={'232px'} />
-                </Grid>
-                <Grid item xs={12}>
-                  <DashboardContentCard height={'232px'} />
-                </Grid>
-                <Grid item xs={12}>
-                  <DashboardContentCard height={'198px'} />
-                </Grid>
-              </Grid>
+              {/* <Grid item xs={4} container spacing={3} sx={styles.gridItem}>*/}
+              {/*  <Grid item xs={12}>*/}
+              {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
+              {/*  </Grid>*/}
+              {/*  <Grid item xs={12}>*/}
+              {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
+              {/*  </Grid>*/}
+              {/*  <Grid item xs={12}>*/}
+              {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
+              {/*  </Grid>*/}
+              {/*  <Grid item xs={12}>*/}
+              {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
+              {/*  </Grid>*/}
+              {/* </Grid>*/}
             </Grid>
           </BoxStyled>
         </>

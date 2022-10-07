@@ -5,26 +5,42 @@ import { BoxStyled, TypographyStyled } from '../components/shared-styled';
 import { SvgCreator } from '../helpers';
 
 type Props = {
-  color?: string;
+  linkColor?: string;
   fontFamily?: string;
   fontWeight?: number;
   lineHeight?: string;
   hasIcon?: boolean;
   linkText?: string;
-  gap: number;
+  linkGap?: number;
+  iconName: string;
+  marginTop?: string | number;
+  width?: string | number;
 };
 export const useLink: React.FC<Props> = ({
-  color,
-  fontFamily,
+  linkColor,
+  fontFamily = 'Source Sans Pro, sans-serif',
   fontWeight = 400,
   lineHeight = '20px',
   hasIcon = true,
   linkText = '',
-  gap = 12
+  linkGap = 12,
+  iconName,
+  marginTop = 0,
+  width
 }) => {
+  const style = {
+    link: {
+      width: width
+    }
+  };
   return (
-    <Link href="/fenoh-store">
-      <BoxStyled color={color} gap={gap} alignItems={'flex-end'} marginTop={8}>
+    <Link href="/#" sx={style.link}>
+      <BoxStyled
+        color={linkColor}
+        gap={linkGap}
+        alignItems={'flex-end'}
+        marginTop={marginTop}
+        justifyContent={'space-between'}>
         <TypographyStyled
           fontFamily={fontFamily}
           fontWeight={fontWeight}
@@ -33,7 +49,7 @@ export const useLink: React.FC<Props> = ({
           textdecorationline={'underline'}>
           {linkText}
         </TypographyStyled>
-        {hasIcon && <SvgCreator iconName={'HyperLink'} color={color} />}
+        {hasIcon && <SvgCreator iconName={iconName} color={linkColor} />}
       </BoxStyled>
     </Link>
   );

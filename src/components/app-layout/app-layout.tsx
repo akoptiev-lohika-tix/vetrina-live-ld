@@ -13,7 +13,7 @@ import NavListItem from '../nav-list-item/nav-list-item';
 import NavigationSelect from '../navigation-select/navigation-select';
 import AppBar from '../app-bar/app-bar';
 import Dashboard from '../../pages/dashboard/dashboard';
-import { appBarCollapsed, appBarHeight } from '../../constants';
+import { DRAWER_OPEN, APP_BAR_HEIGHT } from '../../constants';
 
 const drawerOpenedWidth = 256;
 
@@ -51,7 +51,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
-    width: appBarCollapsed,
+    width: DRAWER_OPEN,
     flexShrink: 0,
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
@@ -125,7 +125,7 @@ const AppLayout = () => {
             </ListStyled>
             <NavigationSelect open={open} />
           </Drawer>
-          <Box sx={{ flexGrow: 1, p: 3, padding: 0, height: appBarHeight, position: 'relative' }}>
+          <Box sx={{ flexGrow: 1, p: 3, padding: 0, height: APP_BAR_HEIGHT, position: 'relative' }}>
             <DrawerHeader />
             <Dashboard />
           </Box>

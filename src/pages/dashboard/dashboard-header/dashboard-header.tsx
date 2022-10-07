@@ -6,7 +6,7 @@ import { useTheme } from '@mui/material/styles';
 import { BoxStyled, TypographyStyled } from '../../../components/shared-styled';
 import {
   DASHBOARD_HEADER_LINK_BASE,
-  dashBoardBannerHeight,
+  DASHBOARD_BANNER_APP_BAR_HEIGHT,
   WELCOME_TEXT
 } from '../../../constants';
 import { useLink } from '../../../hooks';
@@ -17,11 +17,13 @@ const styles = {
     background: 'linear-gradient(180deg, #21B8F9 0%, rgba(33, 184, 249, 0) 132.05%)'
   },
   link: {
-    color: '#ffffff',
+    linkColor: '#ffffff',
     fontFamily: 'Source Sans Pro, sans-serif',
     lineHeight: '22px',
     fontWeight: 500,
-    gap: 16
+    gap: 16,
+    iconName: 'HyperLink',
+    marginTop: 8
   }
 };
 
@@ -33,12 +35,12 @@ const DashboardHeader: React.FC = () => {
     <Container maxWidth="xl" disableGutters>
       <BoxStyled
         sx={styles.box}
-        height={dashBoardBannerHeight}
+        height={DASHBOARD_BANNER_APP_BAR_HEIGHT}
         padding={'40px 38px 0 38px'}
         justifyContent={'space-between'}
         alignItems={'flex-start'}>
         <TypographyStyled
-          fontFamily={'Source Sans Pro, sans-serif'}
+          fontFamily={'Noto Sans HK, sans-serif'}
           fontWeight={600}
           fontSize={34}
           lineHeight={'39px'}
@@ -47,7 +49,7 @@ const DashboardHeader: React.FC = () => {
         </TypographyStyled>
         {useLink({
           ...styles.link,
-          linkText: `${DASHBOARD_HEADER_LINK_BASE}/${activeStore?.path}`
+          linkText: DASHBOARD_HEADER_LINK_BASE + activeStore?.path
         })}
       </BoxStyled>
     </Container>

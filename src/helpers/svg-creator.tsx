@@ -22,13 +22,14 @@ import MenuIcon from '../icons/menu-icon';
 import LogoIcon from '../icons/logo-icon';
 import LightningIcon from '../icons/lightning-icon';
 import HyperLinkIcon from '../icons/hyper-link-icon';
+import ArrowRightIcon from '../icons/arrow-right-icon';
 
 type Props = {
   iconName: string;
   color?: string;
 };
 
-const iconsMap: Record<string, any> = {
+export const iconsMap: Record<string, any> = {
   Dashboard: DashboardIcon,
   Catalogue: CatalogueIcon,
   Orders: OrdersIcon,
@@ -50,7 +51,8 @@ const iconsMap: Record<string, any> = {
   Menu: MenuIcon,
   Logo: LogoIcon,
   Lightning: LightningIcon,
-  HyperLink: HyperLinkIcon
+  HyperLink: HyperLinkIcon,
+  ArrowRight: ArrowRightIcon
 };
 
 export const SvgCreator: React.FC<Props> = ({ iconName, color }) => {
