@@ -29,6 +29,7 @@ const DashboardContentCard: React.FC<Props> = ({
   ...linkProps
 }) => {
   const { palette, typography } = useTheme();
+
   return (
     <CardStyled elevation={1}>
       <BoxStyled gap={96} justifyContent={'space-between'}>

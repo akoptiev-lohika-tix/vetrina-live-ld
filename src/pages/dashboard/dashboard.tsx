@@ -8,13 +8,19 @@ import DashboardContentCard from './dashboard-content-card/dashboard-content-car
 import { BoxStyled } from '../../components/shared-styled';
 import { useTypedSelector } from '../../redux/hooks';
 import {
+  CONFIGURE_CARD_LINK_TEXT,
+  CONFIGURE_CARD_TITLE,
   ORDERS_CARD_LINK_TEXT,
   ORDERS_CARD_TITLE,
   VISITORS_CARD_LINK_TEXT,
   VISITORS_CARD_TITLE
 } from '../../constants';
-import { VisitorsContentSection } from './content-sections/visitors-content-section';
-import { OrdersContentSection } from './content-sections/orders-content-section';
+
+import {
+  ConfigureContentSection,
+  OrdersContentSection,
+  VisitorsContentSection
+} from './content-sections';
 
 const styles = {
   grid: {
@@ -57,8 +63,7 @@ const Dashboard: React.FC = () => {
                     iconName={'ArrowRight'}
                     linkColor={palette.secondary.main}
                     linkText={VISITORS_CARD_LINK_TEXT}
-                    linkGap={20}
-                    width={'100%'}>
+                    linkGap={20}>
                     <VisitorsContentSection />
                   </DashboardContentCard>
                 </Grid>
@@ -72,7 +77,12 @@ const Dashboard: React.FC = () => {
                   </DashboardContentCard>
                 </Grid>
                 {/* <Grid item xs={6}>*/}
-                {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
+                {/*  <DashboardContentCard*/}
+                {/*    headerText={CONFIGURE_CARD_TITLE}*/}
+                {/*    headerIcon={'ConfigureShop'}*/}
+                {/*    hasDropDown={false}*/}
+                {/*    linkColor={palette.secondary.main}*/}
+                {/*    linkText={CONFIGURE_CARD_LINK_TEXT}></DashboardContentCard>*/}
                 {/* </Grid>*/}
                 {/* <Grid item xs={6}>*/}
                 {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
@@ -81,20 +91,28 @@ const Dashboard: React.FC = () => {
                 {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
                 {/* </Grid>*/}
               </Grid>
-              {/* <Grid item xs={4} container spacing={3} sx={styles.gridItem}>*/}
-              {/*  <Grid item xs={12}>*/}
-              {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
-              {/*  </Grid>*/}
-              {/*  <Grid item xs={12}>*/}
-              {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
-              {/*  </Grid>*/}
-              {/*  <Grid item xs={12}>*/}
-              {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
-              {/*  </Grid>*/}
-              {/*  <Grid item xs={12}>*/}
-              {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
-              {/*  </Grid>*/}
-              {/* </Grid>*/}
+              <Grid item xs={4} container spacing={3} sx={styles.gridItem}>
+                <Grid item xs={12}>
+                  <DashboardContentCard
+                    headerText={CONFIGURE_CARD_TITLE}
+                    headerIcon={'ConfigureShop'}
+                    iconName={'ArrowRight'}
+                    hasDropDown={false}
+                    linkColor={palette.secondary.main}
+                    linkText={CONFIGURE_CARD_LINK_TEXT}>
+                    <ConfigureContentSection />
+                  </DashboardContentCard>
+                </Grid>
+                {/*  <Grid item xs={12}>*/}
+                {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
+                {/*  </Grid>*/}
+                {/*  <Grid item xs={12}>*/}
+                {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
+                {/*  </Grid>*/}
+                {/*  <Grid item xs={12}>*/}
+                {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
+                {/*  </Grid>*/}
+              </Grid>
             </Grid>
           </BoxStyled>
         </>

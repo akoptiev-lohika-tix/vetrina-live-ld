@@ -10,3 +10,7 @@ export const ORDERS_CARD_TITLE = 'Orders';
 export const ORDERS_CARD_LINK_TEXT = '10 free tips to increase your sales!';
 export const ORDERS_SECTION_ORDERS_RECEIVED_TITLE = 'Orders received:';
 export const ORDERS_SECTION_EARNINGS_TITLE = 'Earnings:';
+export const CONFIGURE_CARD_TITLE = 'Configure your shop';
+export const CONFIGURE_CARD_LINK_TEXT = 'Complete the setup! ';
+export const CONFIGURE_SECTION_DESCRIPTION =
+  'Complete all the steps to have a complete shop to best present to your customers.';

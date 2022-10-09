@@ -4,6 +4,7 @@ import { BoxProps as MuiBoxProps } from '@mui/material/Box';
 interface BoxProps extends MuiBoxProps {
   height: number | string;
   width?: number | string;
+  maxWidth?: number | string;
   padding?: string;
   bgcolor?: string;
   marginRight?: number;
@@ -31,7 +32,8 @@ export const BoxStyled = styled(Box)<BoxProps>(
     gap,
     padding,
     justifyContent = 'center',
-    alignItems = 'center'
+    alignItems = 'center',
+    maxWidth
   }) => ({
     height: height,
     width: width,
@@ -47,6 +49,7 @@ export const BoxStyled = styled(Box)<BoxProps>(
     justifyContent: justifyContent,
     alignItems: alignItems,
     boxSizing: 'border-box',
-    gap: gap
+    gap: gap,
+    maxWidth: maxWidth
   })
 ) as typeof Box;

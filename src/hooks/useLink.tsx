@@ -14,7 +14,6 @@ type Props = {
   linkGap?: number;
   iconName?: string;
   marginTop?: string | number;
-  width?: string | number;
 };
 export const useLink: React.FC<Props> = ({
   linkColor,
@@ -25,16 +24,10 @@ export const useLink: React.FC<Props> = ({
   linkText = '',
   linkGap = 12,
   iconName,
-  marginTop = 0,
-  width
+  marginTop = 0
 }) => {
-  const style = {
-    link: {
-      width: width
-    }
-  };
   return (
-    <Link href="/#" sx={style.link}>
+    <Link href="/#">
       <BoxStyled
         color={linkColor}
         gap={linkGap}

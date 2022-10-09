@@ -5,7 +5,7 @@ import { useTheme } from '@mui/material';
 import { BoxStyled, TypographyStyled } from '../../../components/shared-styled';
 import { useTypedSelector } from '../../../redux/hooks';
 
-export const VisitorsContentSection = () => {
+export const VisitorsContentSection: React.FC = () => {
   const { palette, typography } = useTheme();
   const { activeStore } = useTypedSelector((state) => state.stores);
   return (
