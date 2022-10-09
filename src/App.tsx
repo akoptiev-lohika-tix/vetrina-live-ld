@@ -14,10 +14,12 @@ const theme = createTheme({
     },
     secondary: {
       main: '#21b8f9',
-      light: '#e9f8fe'
+      light: '#e9f8fe',
+      dark: '#000032'
     },
     success: {
-      main: '#00c48c'
+      main: '#00c48c',
+      dark: '#00b67a'
     },
     error: {
       main: '#f33451'

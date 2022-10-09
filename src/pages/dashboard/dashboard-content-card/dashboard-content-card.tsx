@@ -10,9 +10,11 @@ import { CONTENT_DROPDOWN_TEXT } from '../../../constants';
 
 type Props = {
   headerIcon: string;
-  headerText: string;
+  headerText?: string;
   hasDropDown?: boolean;
+  hasHeaderText?: boolean;
   children?: JSX.Element;
+  background: string;
   linkText: string;
   linkColor: string;
   hasIcon?: boolean;
@@ -25,23 +27,27 @@ const DashboardContentCard: React.FC<Props> = ({
   headerIcon,
   headerText,
   hasDropDown = true,
+  hasHeaderText = true,
   children,
+  background,
   ...linkProps
 }) => {
   const { palette, typography } = useTheme();
 
   return (
-    <CardStyled elevation={1}>
+    <CardStyled elevation={1} background={background}>
       <BoxStyled gap={96} justifyContent={'space-between'}>
         <BoxStyled gap={16}>
           <SvgCreator iconName={headerIcon} color={palette.primary.main} />
-          <TypographyStyled
-            fontSize={20}
-            fontWeight={typography.fontWeightMedium}
-            lineHeight={'25px'}
-            color={palette.primary.main}>
-            {headerText}
-          </TypographyStyled>
+          {hasHeaderText && (
+            <TypographyStyled
+              fontSize={20}
+              fontWeight={typography.fontWeightMedium}
+              lineHeight={'25px'}
+              color={palette.primary.main}>
+              {headerText}
+            </TypographyStyled>
+          )}
         </BoxStyled>
         {hasDropDown && (
           <BoxStyled gap={8}>

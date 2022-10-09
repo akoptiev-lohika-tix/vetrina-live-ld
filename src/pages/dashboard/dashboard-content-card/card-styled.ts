@@ -1,6 +1,12 @@
 import { styled, Card } from '@mui/material';
+import { CardProps as MuiCardProps } from '@mui/material/Card';
 
-export const CardStyled = styled(Card)({
+interface CardProps extends MuiCardProps {
+  background?: string;
+}
+
+export const CardStyled = styled(Card)<CardProps>(({ background }) => ({
+  background: background,
   padding: 24,
   borderRadius: '10px',
   minWidth: 'max-content',
@@ -11,4 +17,4 @@ export const CardStyled = styled(Card)({
     padding: 0,
     justifyContent: 'space-between'
   }
-});
+}));

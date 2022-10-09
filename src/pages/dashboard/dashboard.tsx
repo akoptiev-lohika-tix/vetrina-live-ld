@@ -12,6 +12,7 @@ import {
   CONFIGURE_CARD_TITLE,
   ORDERS_CARD_LINK_TEXT,
   ORDERS_CARD_TITLE,
+  TRUSTPILOT_CARD_LINK_TEXT,
   VISITORS_CARD_LINK_TEXT,
   VISITORS_CARD_TITLE
 } from '../../constants';
@@ -19,6 +20,7 @@ import {
 import {
   ConfigureContentSection,
   OrdersContentSection,
+  TrustpilotContentSection,
   VisitorsContentSection
 } from './content-sections';
 
@@ -58,6 +60,7 @@ const Dashboard: React.FC = () => {
               <Grid item xs={8} container spacing={3}>
                 <Grid item xs={6}>
                   <DashboardContentCard
+                    background={palette.common.white}
                     headerText={VISITORS_CARD_TITLE}
                     headerIcon={'ViewShop'}
                     iconName={'ArrowRight'}
@@ -69,6 +72,7 @@ const Dashboard: React.FC = () => {
                 </Grid>
                 <Grid item xs={6}>
                   <DashboardContentCard
+                    background={palette.common.white}
                     headerText={ORDERS_CARD_TITLE}
                     headerIcon={'Orders'}
                     linkColor={palette.secondary.main}
@@ -94,6 +98,7 @@ const Dashboard: React.FC = () => {
               <Grid item xs={4} container spacing={3} sx={styles.gridItem}>
                 <Grid item xs={12}>
                   <DashboardContentCard
+                    background={palette.common.white}
                     headerText={CONFIGURE_CARD_TITLE}
                     headerIcon={'ConfigureShop'}
                     iconName={'ArrowRight'}
@@ -103,16 +108,26 @@ const Dashboard: React.FC = () => {
                     <ConfigureContentSection />
                   </DashboardContentCard>
                 </Grid>
-                {/*  <Grid item xs={12}>*/}
-                {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
-                {/*  </Grid>*/}
-                {/*  <Grid item xs={12}>*/}
-                {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
-                {/*  </Grid>*/}
-                {/*  <Grid item xs={12}>*/}
-                {/*    <DashboardContentCard iconName={'ArrowRight'} />*/}
-                {/*  </Grid>*/}
+                <Grid item xs={12}>
+                  <DashboardContentCard
+                    background={palette.secondary.dark}
+                    iconName={'ArrowRight'}
+                    linkText={TRUSTPILOT_CARD_LINK_TEXT}
+                    linkColor={palette.success.dark}
+                    headerIcon={'TrustPilot'}
+                    hasDropDown={false}
+                    hasHeaderText={false}>
+                    <TrustpilotContentSection />
+                  </DashboardContentCard>
+                </Grid>
               </Grid>
+
+              {/* <Grid item xs={12}>*/}
+              {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
+              {/* </Grid>*/}
+              {/* <Grid item xs={12}>*/}
+              {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
+              {/* </Grid>*/}
             </Grid>
           </BoxStyled>
         </>
