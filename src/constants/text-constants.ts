@@ -17,3 +17,6 @@ export const CONFIGURE_SECTION_DESCRIPTION =
 export const TRUSTPILOT_CARD_LINK_TEXT = 'Write a review on Trustpilot';
 export const INVITE_FRIEND_CARD_TITLE = 'Invite friend';
 export const INVITE_FRIEND_CARD_LINK_TEXT = 'Start inviting friends!';
+export const SUPPORT_CARD_TITLE = 'Customer support';
+export const SUPPORT_CARD_BUTTON_TEXT = 'Contact us';
+export const SUPPORT_CARD_SECTION_TEXT = 'is here to help you.';

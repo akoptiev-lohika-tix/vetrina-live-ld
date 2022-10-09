@@ -9,14 +9,15 @@ import { SvgCreator } from '../../../helpers';
 import { CONTENT_DROPDOWN_TEXT } from '../../../constants';
 
 type Props = {
-  headerIcon: string;
+  headerIcon?: string;
   headerText?: string;
   hasDropDown?: boolean;
   hasHeaderText?: boolean;
+  hasLink?: boolean;
   children?: JSX.Element;
   background: string;
-  linkText: string;
-  linkColor: string;
+  linkText?: string;
+  linkColor?: string;
   hasIcon?: boolean;
   iconName?: string;
   linkGap?: number;
@@ -24,12 +25,13 @@ type Props = {
 };
 
 const DashboardContentCard: React.FC<Props> = ({
-  headerIcon,
+  headerIcon = 'ViewShop',
   headerText,
   hasDropDown = true,
   hasHeaderText = true,
   children,
   background,
+  hasLink = true,
   ...linkProps
 }) => {
   const { palette, typography } = useTheme();
@@ -63,7 +65,8 @@ const DashboardContentCard: React.FC<Props> = ({
         )}
       </BoxStyled>
       {children}
-      <CardActions>{useLink(linkProps)}</CardActions>
+      {/* eslint-disable-next-line react-hooks/rules-of-hooks */}
+      {hasLink && <CardActions>{useLink(linkProps)}</CardActions>}
     </CardStyled>
   );
 };

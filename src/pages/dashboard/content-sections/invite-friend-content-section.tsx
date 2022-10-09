@@ -19,8 +19,11 @@ export const InviteFriendContentSection: React.FC = () => {
   return (
     <BoxStyled width={'302px'} justifyContent={'flex-start'}>
       <TypographyStyled fontSize={17} color={palette.primary.main} lineHeight={'22px'}>
-        <Box sx={styles.greenText}>Receive 50 products</Box> by inviting a friend who subscribes to
-        a plan. Your friend will receive a 30% discount coupon valid for any plan.
+        <Box component={'span'} sx={styles.greenText}>
+          Receive 50 products
+        </Box>{' '}
+        by inviting a friend who subscribes to a plan. Your friend will receive a 30% discount
+        coupon valid for any plan.
       </TypographyStyled>
     </BoxStyled>
   );

@@ -14,6 +14,7 @@ import {
   INVITE_FRIEND_CARD_TITLE,
   ORDERS_CARD_LINK_TEXT,
   ORDERS_CARD_TITLE,
+  SUPPORT_CARD_TITLE,
   TRUSTPILOT_CARD_LINK_TEXT,
   VISITORS_CARD_LINK_TEXT,
   VISITORS_CARD_TITLE
@@ -23,6 +24,7 @@ import {
   ConfigureContentSection,
   InviteFriendContentSection,
   OrdersContentSection,
+  SupportContentSection,
   TrustpilotContentSection,
   VisitorsContentSection
 } from './content-sections';
@@ -135,11 +137,17 @@ const Dashboard: React.FC = () => {
                     <InviteFriendContentSection />
                   </DashboardContentCard>
                 </Grid>
+                <Grid item xs={12}>
+                  <DashboardContentCard
+                    headerText={SUPPORT_CARD_TITLE}
+                    background={palette.common.white}
+                    headerIcon={'Support'}
+                    hasLink={false}
+                    hasDropDown={false}>
+                    <SupportContentSection />
+                  </DashboardContentCard>
+                </Grid>
               </Grid>
-
-              {/* <Grid item xs={12}>*/}
-              {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
-              {/* </Grid>*/}
             </Grid>
           </BoxStyled>
         </>
