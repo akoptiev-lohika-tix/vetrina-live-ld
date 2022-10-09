@@ -26,6 +26,7 @@ import HyperLinkIcon from '../icons/hyper-link-icon';
 import ArrowRightIcon from '../icons/arrow-right-icon';
 import ConfigureShopIcon from '../icons/configure-shop-icon';
 import TrustPilotIcon from '../icons/trustpilot-icon';
+import InviteFriendsIcon from '../icons/invite-friends-icon';
 
 type Props = {
   iconName: string;
@@ -58,7 +59,8 @@ export const iconsMap: Record<string, any> = {
   ArrowRight: ArrowRightIcon,
   ChevronDownSmall: ChevronDownSmallIcon,
   ConfigureShop: ConfigureShopIcon,
-  TrustPilot: TrustPilotIcon
+  TrustPilot: TrustPilotIcon,
+  InviteFriends: InviteFriendsIcon
 };
 
 export const SvgCreator: React.FC<Props> = ({ iconName, color }) => {

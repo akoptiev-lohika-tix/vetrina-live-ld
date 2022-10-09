@@ -10,6 +10,8 @@ import { useTypedSelector } from '../../redux/hooks';
 import {
   CONFIGURE_CARD_LINK_TEXT,
   CONFIGURE_CARD_TITLE,
+  INVITE_FRIEND_CARD_LINK_TEXT,
+  INVITE_FRIEND_CARD_TITLE,
   ORDERS_CARD_LINK_TEXT,
   ORDERS_CARD_TITLE,
   TRUSTPILOT_CARD_LINK_TEXT,
@@ -19,6 +21,7 @@ import {
 
 import {
   ConfigureContentSection,
+  InviteFriendContentSection,
   OrdersContentSection,
   TrustpilotContentSection,
   VisitorsContentSection
@@ -101,8 +104,8 @@ const Dashboard: React.FC = () => {
                     background={palette.common.white}
                     headerText={CONFIGURE_CARD_TITLE}
                     headerIcon={'ConfigureShop'}
-                    iconName={'ArrowRight'}
                     hasDropDown={false}
+                    iconName={'ArrowRight'}
                     linkColor={palette.secondary.main}
                     linkText={CONFIGURE_CARD_LINK_TEXT}>
                     <ConfigureContentSection />
@@ -120,11 +123,20 @@ const Dashboard: React.FC = () => {
                     <TrustpilotContentSection />
                   </DashboardContentCard>
                 </Grid>
+                <Grid item xs={12}>
+                  <DashboardContentCard
+                    headerText={INVITE_FRIEND_CARD_TITLE}
+                    background={palette.common.white}
+                    iconName={'ArrowRight'}
+                    linkText={INVITE_FRIEND_CARD_LINK_TEXT}
+                    linkColor={palette.secondary.main}
+                    headerIcon={'InviteFriends'}
+                    hasDropDown={false}>
+                    <InviteFriendContentSection />
+                  </DashboardContentCard>
+                </Grid>
               </Grid>
 
-              {/* <Grid item xs={12}>*/}
-              {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
-              {/* </Grid>*/}
               {/* <Grid item xs={12}>*/}
               {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
               {/* </Grid>*/}

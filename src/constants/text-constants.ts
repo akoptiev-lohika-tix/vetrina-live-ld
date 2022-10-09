@@ -15,3 +15,5 @@ export const CONFIGURE_CARD_LINK_TEXT = 'Complete the setup! ';
 export const CONFIGURE_SECTION_DESCRIPTION =
   'Complete all the steps to have a complete shop to best present to your customers.';
 export const TRUSTPILOT_CARD_LINK_TEXT = 'Write a review on Trustpilot';
+export const INVITE_FRIEND_CARD_TITLE = 'Invite friend';
+export const INVITE_FRIEND_CARD_LINK_TEXT = 'Start inviting friends!';
