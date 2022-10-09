@@ -8,15 +8,25 @@ interface TypographyProps extends MuiTypographyProps {
   lineHeight?: string;
   color?: string;
   textdecorationline?: string;
+  width?: number | string;
 }
 
 export const TypographyStyled = styled(Typography)<TypographyProps>(
-  ({ fontfamily, fontSize, fontWeight, lineHeight, color, textdecorationline = 'none' }) => ({
+  ({
+    fontfamily,
+    fontSize,
+    fontWeight,
+    lineHeight,
+    color,
+    textdecorationline = 'none',
+    width
+  }) => ({
     fontfamily: fontfamily,
     fontSize: fontSize,
     fontWeight: fontWeight,
     lineHeight: lineHeight,
     color: color,
-    textDecorationLine: textdecorationline
+    textDecorationLine: textdecorationline,
+    width: width
   })
 );

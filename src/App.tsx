@@ -14,10 +14,12 @@ const theme = createTheme({
     },
     secondary: {
       main: '#21b8f9',
-      light: '#e9f8fe'
+      light: '#e9f8fe',
+      dark: '#000032'
     },
     success: {
-      main: '#00c48c'
+      main: '#00c48c',
+      dark: '#00b67a'
     },
     error: {
       main: '#f33451'
@@ -26,8 +28,10 @@ const theme = createTheme({
       main: '#ffa26b'
     },
     grey: {
+      300: '#6c7c8c',
       400: '#e5e5e5',
-      500: '#f7f7f7'
+      500: '#f7f7f7',
+      600: '#666666'
     }
   },
   typography: {

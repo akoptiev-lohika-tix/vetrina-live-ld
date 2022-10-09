@@ -18,17 +18,23 @@ import ShareShopIcon from '../icons/share-shop-icon';
 import ViewShopIcon from '../icons/view-shop-icon';
 import ChevronUpIcon from '../icons/chevron-up-icon';
 import ChevronDownIcon from '../icons/chevron-down-icon';
+import ChevronDownSmallIcon from '../icons/chevron-down-small-icon';
 import MenuIcon from '../icons/menu-icon';
 import LogoIcon from '../icons/logo-icon';
 import LightningIcon from '../icons/lightning-icon';
 import HyperLinkIcon from '../icons/hyper-link-icon';
+import ArrowRightIcon from '../icons/arrow-right-icon';
+import ConfigureShopIcon from '../icons/configure-shop-icon';
+import TrustPilotIcon from '../icons/trustpilot-icon';
+import InviteFriendsIcon from '../icons/invite-friends-icon';
+import SupportIcon from '../icons/support-icon';
 
 type Props = {
   iconName: string;
   color?: string;
 };
 
-const iconsMap: Record<string, any> = {
+export const iconsMap: Record<string, any> = {
   Dashboard: DashboardIcon,
   Catalogue: CatalogueIcon,
   Orders: OrdersIcon,
@@ -50,7 +56,13 @@ const iconsMap: Record<string, any> = {
   Menu: MenuIcon,
   Logo: LogoIcon,
   Lightning: LightningIcon,
-  HyperLink: HyperLinkIcon
+  HyperLink: HyperLinkIcon,
+  ArrowRight: ArrowRightIcon,
+  ChevronDownSmall: ChevronDownSmallIcon,
+  ConfigureShop: ConfigureShopIcon,
+  TrustPilot: TrustPilotIcon,
+  InviteFriends: InviteFriendsIcon,
+  Support: SupportIcon
 };
 
 export const SvgCreator: React.FC<Props> = ({ iconName, color }) => {
