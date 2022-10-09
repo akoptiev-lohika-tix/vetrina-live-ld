@@ -5,9 +5,16 @@ import LinearProgress from '@mui/material/LinearProgress';
 
 import DashboardHeader from './dashboard-header/dashboard-header';
 import DashboardContentCard from './dashboard-content-card/dashboard-content-card';
-import { BoxStyled, TypographyStyled } from '../../components/shared-styled';
+import { BoxStyled } from '../../components/shared-styled';
 import { useTypedSelector } from '../../redux/hooks';
-import { VISITORS_CARD_LINK_TEXT, VISITORS_CARD_TITLE } from '../../constants';
+import {
+  ORDERS_CARD_LINK_TEXT,
+  ORDERS_CARD_TITLE,
+  VISITORS_CARD_LINK_TEXT,
+  VISITORS_CARD_TITLE
+} from '../../constants';
+import { VisitorsContentSection } from './content-sections/visitors-content-section';
+import { OrdersContentSection } from './content-sections/orders-content-section';
 
 const styles = {
   grid: {
@@ -32,7 +39,7 @@ const styles = {
 const Dashboard: React.FC = () => {
   const { loadingPages } = useTypedSelector((state) => state.pages);
   const { loadingActiveStore, activeStore } = useTypedSelector((state) => state.stores);
-  const { palette, typography } = useTheme();
+  const { palette } = useTheme();
 
   return (
     <>
@@ -52,20 +59,18 @@ const Dashboard: React.FC = () => {
                     linkText={VISITORS_CARD_LINK_TEXT}
                     linkGap={20}
                     width={'100%'}>
-                    <BoxStyled height={80} justifyContent={'flex-start'}>
-                      <TypographyStyled
-                        fontSize={42}
-                        color={palette.primary.main}
-                        fontWeight={typography.fontWeightMedium}
-                        lineHeight={'61px'}>
-                        {activeStore.data.visitors}
-                      </TypographyStyled>
-                    </BoxStyled>
+                    <VisitorsContentSection />
                   </DashboardContentCard>
                 </Grid>
-                {/* <Grid item xs={6}>*/}
-                {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
-                {/* </Grid>*/}
+                <Grid item xs={6}>
+                  <DashboardContentCard
+                    headerText={ORDERS_CARD_TITLE}
+                    headerIcon={'Orders'}
+                    linkColor={palette.secondary.main}
+                    linkText={ORDERS_CARD_LINK_TEXT}>
+                    <OrdersContentSection />
+                  </DashboardContentCard>
+                </Grid>
                 {/* <Grid item xs={6}>*/}
                 {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
                 {/* </Grid>*/}

@@ -18,6 +18,7 @@ import ShareShopIcon from '../icons/share-shop-icon';
 import ViewShopIcon from '../icons/view-shop-icon';
 import ChevronUpIcon from '../icons/chevron-up-icon';
 import ChevronDownIcon from '../icons/chevron-down-icon';
+import ChevronDownSmallIcon from '../icons/chevron-down-small-icon';
 import MenuIcon from '../icons/menu-icon';
 import LogoIcon from '../icons/logo-icon';
 import LightningIcon from '../icons/lightning-icon';
@@ -52,7 +53,8 @@ export const iconsMap: Record<string, any> = {
   Logo: LogoIcon,
   Lightning: LightningIcon,
   HyperLink: HyperLinkIcon,
-  ArrowRight: ArrowRightIcon
+  ArrowRight: ArrowRightIcon,
+  ChevronDownSmall: ChevronDownSmallIcon
 };
 
 export const SvgCreator: React.FC<Props> = ({ iconName, color }) => {

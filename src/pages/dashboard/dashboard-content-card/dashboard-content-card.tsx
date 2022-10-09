@@ -4,8 +4,9 @@ import { CardActions, useTheme } from '@mui/material';
 
 import { CardStyled } from './card-styled';
 import { useLink } from '../../../hooks';
-import { BoxStyled, TypographyStyled } from '../../../components/shared-styled';
+import { BoxStyled, IconButtonStyled, TypographyStyled } from '../../../components/shared-styled';
 import { SvgCreator } from '../../../helpers';
+import { CONTENT_DROPDOWN_TEXT } from '../../../constants';
 
 type Props = {
   headerIcon: string;
@@ -15,12 +16,12 @@ type Props = {
   linkText: string;
   linkColor: string;
   hasIcon?: boolean;
-  iconName: string;
-  linkGap: number;
+  iconName?: string;
+  linkGap?: number;
   width?: number | string;
 };
 
-export const DashboardContentCard: React.FC<Props> = ({
+const DashboardContentCard: React.FC<Props> = ({
   headerIcon,
   headerText,
   hasDropDown = true,
@@ -41,7 +42,18 @@ export const DashboardContentCard: React.FC<Props> = ({
             {headerText}
           </TypographyStyled>
         </BoxStyled>
-        {hasDropDown && <BoxStyled>Hello</BoxStyled>}
+        {hasDropDown && (
+          <BoxStyled gap={8}>
+            <>
+              <TypographyStyled fontSize={14} lineHeight={'18px'} color={palette.grey['600']}>
+                {CONTENT_DROPDOWN_TEXT}
+              </TypographyStyled>
+              <IconButtonStyled width={16} height={16} disableRipple>
+                <SvgCreator iconName={'ChevronDownSmall'} color={palette.grey['600']} />
+              </IconButtonStyled>
+            </>
+          </BoxStyled>
+        )}
       </BoxStyled>
       {children}
       <CardActions>{useLink(linkProps)}</CardActions>

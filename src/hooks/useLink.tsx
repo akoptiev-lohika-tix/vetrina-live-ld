@@ -12,7 +12,7 @@ type Props = {
   hasIcon?: boolean;
   linkText?: string;
   linkGap?: number;
-  iconName: string;
+  iconName?: string;
   marginTop?: string | number;
   width?: string | number;
 };
@@ -49,7 +49,7 @@ export const useLink: React.FC<Props> = ({
           textdecorationline={'underline'}>
           {linkText}
         </TypographyStyled>
-        {hasIcon && <SvgCreator iconName={iconName} color={linkColor} />}
+        {hasIcon && iconName && <SvgCreator iconName={iconName} color={linkColor} />}
       </BoxStyled>
     </Link>
   );

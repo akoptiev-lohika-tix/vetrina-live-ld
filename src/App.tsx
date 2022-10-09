@@ -26,8 +26,10 @@ const theme = createTheme({
       main: '#ffa26b'
     },
     grey: {
+      300: '#6c7c8c',
       400: '#e5e5e5',
-      500: '#f7f7f7'
+      500: '#f7f7f7',
+      600: '#666666'
     }
   },
   typography: {
