@@ -4,3 +4,4 @@ export * from './configure-content-section';
 export * from './trustpilot-content-section';
 export * from './invite-friend-content-section';
 export * from './support-content-section';
+export * from './news-content-section';

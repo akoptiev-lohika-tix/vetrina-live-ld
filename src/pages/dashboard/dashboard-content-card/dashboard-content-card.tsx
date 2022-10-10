@@ -22,6 +22,7 @@ type Props = {
   iconName?: string;
   linkGap?: number;
   width?: number | string;
+  isNews?: boolean;
 };
 
 const DashboardContentCard: React.FC<Props> = ({
@@ -32,6 +33,7 @@ const DashboardContentCard: React.FC<Props> = ({
   children,
   background,
   hasLink = true,
+  isNews = false,
   ...linkProps
 }) => {
   const { palette, typography } = useTheme();
@@ -39,7 +41,7 @@ const DashboardContentCard: React.FC<Props> = ({
   return (
     <CardStyled elevation={1} background={background}>
       <BoxStyled gap={96} justifyContent={'space-between'}>
-        <BoxStyled gap={16}>
+        <BoxStyled gap={16} padding={isNews ? '0 8px' : '0'}>
           <SvgCreator iconName={headerIcon} color={palette.primary.main} />
           {hasHeaderText && (
             <TypographyStyled
@@ -63,6 +65,8 @@ const DashboardContentCard: React.FC<Props> = ({
             </>
           </BoxStyled>
         )}
+        {/* eslint-disable-next-line react-hooks/rules-of-hooks */}
+        {isNews && <CardActions>{useLink(linkProps)}</CardActions>}
       </BoxStyled>
       {children}
       {/* eslint-disable-next-line react-hooks/rules-of-hooks */}
