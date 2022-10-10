@@ -9,6 +9,7 @@ import { BoxStyled, IconButtonStyled, TypographyStyled } from '../../../componen
 import { CONTENT_DROPDOWN_TEXT } from '../../../constants';
 import { SvgCreator } from '../../../components/svg-creator/svg-creator';
 import { LinkCreator } from '../../../components/link-creator/link-creator';
+import TrustPilot from '../../../assets/trustpilot.svg';
 
 type Props = {
   headerIcon?: string;
@@ -24,6 +25,7 @@ type Props = {
   iconName?: string;
   linkGap?: number;
   width?: number | string;
+  isTrustpilot?: boolean;
   isNews?: boolean;
   isExtension?: boolean;
   isMobileMarket?: boolean;
@@ -40,6 +42,7 @@ const DashboardContentCard: React.FC<Props> = ({
   isNews = false,
   isExtension = false,
   isMobileMarket = false,
+  isTrustpilot = false,
   ...linkProps
 }) => {
   const { palette, typography } = useTheme();
@@ -53,7 +56,11 @@ const DashboardContentCard: React.FC<Props> = ({
       {!isMobileMarket && (
         <BoxStyled gap={96} justifyContent={'space-between'}>
           <BoxStyled gap={16} padding={isNews ? '0 8px' : '0'}>
-            <SvgCreator iconName={headerIcon} color={palette.primary.main} />
+            {!isTrustpilot ? (
+              <SvgCreator iconName={headerIcon} color={palette.primary.main} />
+            ) : (
+              <BoxStyled component={'img'} src={TrustPilot} />
+            )}
             {hasHeaderText && (
               <TypographyStyled
                 fontSize={20}
