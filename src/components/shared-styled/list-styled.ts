@@ -1,5 +1,6 @@
 import { List, styled } from '@mui/material';
 import { ListProps as MuiListProps } from '@mui/material/List';
+import { CSSObject } from '@mui/material/styles';
 
 interface ListProps extends MuiListProps {
   background?: string;
@@ -9,7 +10,7 @@ interface ListProps extends MuiListProps {
 }
 
 export const ListStyled = styled(List)<ListProps>(
-  ({ background, paddingtop, marginbottom, paddingbottom }) => ({
+  ({ background, paddingtop, marginbottom, paddingbottom }): CSSObject => ({
     background: background,
     paddingTop: paddingtop,
     paddingBottom: paddingbottom,

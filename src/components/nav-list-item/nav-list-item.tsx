@@ -7,26 +7,12 @@ import ListItemText from '@mui/material/ListItemText';
 import Badge from '@mui/material/Badge';
 
 import { useExpandedIcon } from '../../hooks/useExpandedIcon';
-import { DividerStyled, ListStyled, ListItemStyled, BoxStyled } from '../shared-styled';
+import { DividerStyled, ListStyled, BoxStyled } from '../shared-styled';
 import { Page, SubPage } from '../../interfaces';
-import ListItemButtonStyled from '../shared-styled/list-item-button-styled';
+import ListItemButtonStyled from './list-item-button-styled';
 import { setDisplay, SvgCreator } from '../../helpers';
 import { useActions, useTypedSelector } from '../../redux/hooks';
-
-const styles = {
-  badge: {
-    '& .MuiBadge-badge': {
-      width: '24px',
-      height: '24px',
-      fontSize: '14px',
-      fontFamily: 'Source Sans Pro, sans-serif',
-      fontWeight: 600,
-      padding: 0,
-      borderRadius: 12,
-      color: '#ffffff'
-    }
-  }
-};
+import { ListItemStyled } from './list-item-styled';
 
 type Props = {
   page: Page;
@@ -34,6 +20,39 @@ type Props = {
 };
 
 const NavListItem: React.FC<Props> = ({ page, open }) => {
+  const styles = {
+    badge: {
+      '& .MuiBadge-badge': {
+        width: '24px',
+        height: '24px',
+        fontSize: '14px',
+        fontFamily: 'Source Sans Pro, sans-serif',
+        fontWeight: 600,
+        padding: 0,
+        borderRadius: 12,
+        color: '#ffffff'
+      }
+    },
+    listIcon: {
+      minWidth: 0,
+      width: '20px',
+      height: '20px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      ...(open && { mr: '16px' })
+    },
+    expandedIcon: {
+      minWidth: 0,
+      width: '20px',
+      height: '20px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      mr: '20px',
+      ...(!open && { display: 'none' })
+    }
+  };
   const { palette } = useTheme();
   const [isExpandedOpen, setIsExpandedOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -53,7 +72,9 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
     setIsExpandedOpen(!isExpandedOpen);
   };
 
-  const checkIsPageActive = (pageName: Page['displayName'] | SubPage['displayName'] | null) => {
+  const checkIsPageActive = (
+    pageName: Page['displayName'] | SubPage['displayName'] | null
+  ): void => {
     if (activePageName && page.displayName === pageName) {
       setIsActive(true);
     } else {
@@ -87,16 +108,7 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
             onClick={() => {
               setActivePage(page.displayName);
             }}>
-            <ListItemIcon
-              sx={{
-                minWidth: 0,
-                width: '20px',
-                height: '20px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                ...(open && { mr: '16px' })
-              }}>
+            <ListItemIcon sx={styles.listIcon}>
               <SvgCreator
                 iconName={page.iconName}
                 color={isActive ? palette.secondary.main : palette.primary.main}
@@ -104,17 +116,7 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
             </ListItemIcon>
             {open && <ListItemText primary={page.displayName} />}
           </ListItemButtonStyled>
-          <ListItemIcon
-            sx={{
-              minWidth: 0,
-              width: '20px',
-              height: '20px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              mr: '20px',
-              ...(!open && { display: 'none' })
-            }}>
+          <ListItemIcon sx={styles.expandedIcon}>
             {useExpandedIcon(page, isExpandedOpen, toggleExpandedOpen, setDisplay(open))}
             {page.hasBadge && (
               <Badge
