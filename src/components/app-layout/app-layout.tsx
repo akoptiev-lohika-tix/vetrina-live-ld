@@ -81,11 +81,12 @@ const AppLayout = () => {
   const { palette } = useTheme();
   const { pages, loadingPages } = useTypedSelector((state) => state.pages);
   const { stores, loadingStores } = useTypedSelector((state) => state.stores);
-  const { fetchPages, fetchStores } = useActions();
+  const { fetchPages, fetchStores, fetchNews } = useActions();
 
   useEffect(() => {
     fetchPages();
     fetchStores();
+    fetchNews();
   }, []);
 
   const handleDrawerOpenClose = (): void => {

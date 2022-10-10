@@ -12,6 +12,8 @@ import {
   CONFIGURE_CARD_TITLE,
   INVITE_FRIEND_CARD_LINK_TEXT,
   INVITE_FRIEND_CARD_TITLE,
+  NEWS_CARD_LINK_TEXT,
+  NEWS_CARD_TITLE,
   ORDERS_CARD_LINK_TEXT,
   ORDERS_CARD_TITLE,
   SUPPORT_CARD_TITLE,
@@ -23,6 +25,7 @@ import {
 import {
   ConfigureContentSection,
   InviteFriendContentSection,
+  NewsContentSection,
   OrdersContentSection,
   SupportContentSection,
   TrustpilotContentSection,
@@ -96,9 +99,21 @@ const Dashboard: React.FC = () => {
                 {/* <Grid item xs={6}>*/}
                 {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
                 {/* </Grid>*/}
-                {/* <Grid item xs={12}>*/}
-                {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
-                {/* </Grid>*/}
+                <Grid item xs={12}>
+                  <DashboardContentCard
+                    isNews={true}
+                    headerIcon={'News'}
+                    headerText={NEWS_CARD_TITLE}
+                    hasDropDown={false}
+                    hasLink={false}
+                    iconName={'HyperLink'}
+                    background={palette.common.white}
+                    linkText={NEWS_CARD_LINK_TEXT}
+                    linkColor={palette.secondary.main}
+                    linkGap={16}>
+                    <NewsContentSection />
+                  </DashboardContentCard>
+                </Grid>
               </Grid>
               <Grid item xs={4} container spacing={3} sx={styles.gridItem}>
                 <Grid item xs={12}>

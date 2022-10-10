@@ -20,3 +20,6 @@ export const INVITE_FRIEND_CARD_LINK_TEXT = 'Start inviting friends!';
 export const SUPPORT_CARD_TITLE = 'Customer support';
 export const SUPPORT_CARD_BUTTON_TEXT = 'Contact us';
 export const SUPPORT_CARD_SECTION_TEXT = 'is here to help you.';
+export const NEWS_CARD_TITLE = 'Latest news';
+export const NEWS_CARD_LINK_TEXT = 'Visit our blog';
+export const NEWS_CARD_ESTIMATED_TEXT = 'Estimated reading: 4 min';

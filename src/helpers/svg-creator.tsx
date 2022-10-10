@@ -28,6 +28,7 @@ import ConfigureShopIcon from '../icons/configure-shop-icon';
 import TrustPilotIcon from '../icons/trustpilot-icon';
 import InviteFriendsIcon from '../icons/invite-friends-icon';
 import SupportIcon from '../icons/support-icon';
+import NewsIcon from '../icons/news-icon';
 
 type Props = {
   iconName: string;
@@ -62,7 +63,8 @@ export const iconsMap: Record<string, any> = {
   ConfigureShop: ConfigureShopIcon,
   TrustPilot: TrustPilotIcon,
   InviteFriends: InviteFriendsIcon,
-  Support: SupportIcon
+  Support: SupportIcon,
+  News: NewsIcon
 };
 
 export const SvgCreator: React.FC<Props> = ({ iconName, color }) => {
