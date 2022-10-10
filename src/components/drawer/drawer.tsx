@@ -2,13 +2,13 @@ import React from 'react';
 
 import { useTheme } from '@mui/material/styles';
 
-import { SvgCreator } from '../../helpers';
 import { IconButtonStyled, ListStyled } from '../shared-styled';
 import NavListItem from '../nav-list-item/nav-list-item';
 import NavigationSelect from '../navigation-select/navigation-select';
 import { DrawerStyled } from './drawer-styled';
 import { DrawerHeaderStyled } from './drawer-header-styled';
 import { Page } from '../../interfaces';
+import { SvgCreator } from '../svg-creator/svg-creator';
 
 type Props = {
   pages: Page[];

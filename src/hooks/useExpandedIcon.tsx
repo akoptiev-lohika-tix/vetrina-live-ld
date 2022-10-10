@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material';
 
 import { Page } from '../interfaces';
-import { SvgCreator } from '../helpers';
+
 import { IconButtonStyled } from '../components/shared-styled';
+import { SvgCreator } from '../components/svg-creator/svg-creator';
 
 type MouseEventHandler = React.MouseEventHandler<HTMLButtonElement>;
 

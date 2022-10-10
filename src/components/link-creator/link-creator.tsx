@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from '@mui/material';
 
-import { BoxStyled, TypographyStyled } from '../components/shared-styled';
-import { SvgCreator } from '../helpers';
+import { BoxStyled, TypographyStyled } from '../shared-styled';
+import { SvgCreator } from '../svg-creator/svg-creator';
 
 type Props = {
   linkColor?: string;
@@ -15,7 +15,7 @@ type Props = {
   iconName?: string;
   marginTop?: string | number;
 };
-export const useLink: React.FC<Props> = ({
+export const LinkCreator: React.FC<Props> = ({
   linkColor,
   fontFamily = 'Source Sans Pro, sans-serif',
   fontWeight = 400,
@@ -27,7 +27,7 @@ export const useLink: React.FC<Props> = ({
   marginTop = 0
 }) => {
   return (
-    <Link href="/#">
+    <Link href="/src/pages#">
       <BoxStyled
         color={linkColor}
         gap={linkGap}

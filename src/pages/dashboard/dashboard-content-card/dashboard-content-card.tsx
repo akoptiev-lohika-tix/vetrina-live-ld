@@ -3,10 +3,12 @@ import React from 'react';
 import { CardActions, useTheme } from '@mui/material';
 
 import { CardStyled } from './card-styled';
-import { useLink } from '../../../hooks';
+
 import { BoxStyled, IconButtonStyled, TypographyStyled } from '../../../components/shared-styled';
-import { SvgCreator } from '../../../helpers';
+
 import { CONTENT_DROPDOWN_TEXT } from '../../../constants';
+import { SvgCreator } from '../../../components/svg-creator/svg-creator';
+import { LinkCreator } from '../../../components/link-creator/link-creator';
 
 type Props = {
   headerIcon?: string;
@@ -74,13 +76,20 @@ const DashboardContentCard: React.FC<Props> = ({
               </>
             </BoxStyled>
           )}
-          {/* eslint-disable-next-line react-hooks/rules-of-hooks */}
-          {isNews && <CardActions>{useLink(linkProps)}</CardActions>}
+          {isNews && (
+            <CardActions>
+              <LinkCreator {...linkProps} />
+            </CardActions>
+          )}
         </BoxStyled>
       )}
       {children}
-      {/* eslint-disable-next-line react-hooks/rules-of-hooks */}
-      {hasLink && !isMobileMarket && <CardActions>{useLink(linkProps)}</CardActions>}
+
+      {hasLink && !isMobileMarket && (
+        <CardActions>
+          <LinkCreator {...linkProps} />
+        </CardActions>
+      )}
     </CardStyled>
   );
 };

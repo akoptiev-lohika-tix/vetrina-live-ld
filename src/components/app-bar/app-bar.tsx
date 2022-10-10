@@ -9,7 +9,7 @@ import { AppBarStyled } from './app-bar-styled';
 import { BoxStyled, TypographyStyled } from '../shared-styled';
 import { NOTIFICATION_TITLE } from '../../constants';
 import { useTypedSelector } from '../../redux/hooks';
-import { SvgCreator } from '../../helpers';
+import { SvgCreator } from '../svg-creator/svg-creator';
 
 const styles = {
   badge: {

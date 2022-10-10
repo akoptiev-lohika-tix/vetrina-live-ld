@@ -6,13 +6,14 @@ import { Collapse, ListItemIcon } from '@mui/material';
 import ListItemText from '@mui/material/ListItemText';
 import Badge from '@mui/material/Badge';
 
-import { useExpandedIcon } from '../../hooks/useExpandedIcon';
+import { useExpandedIcon } from '../../hooks';
 import { DividerStyled, ListStyled, BoxStyled } from '../shared-styled';
 import { Page, SubPage } from '../../interfaces';
 import ListItemButtonStyled from './list-item-button-styled';
-import { setDisplay, SvgCreator } from '../../helpers';
+import { setDisplay } from '../../helpers';
 import { useActions, useTypedSelector } from '../../redux/hooks';
 import { ListItemStyled } from './list-item-styled';
+import { SvgCreator } from '../svg-creator/svg-creator';
 
 type Props = {
   page: Page;
@@ -59,6 +60,7 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
   const { activePageName } = useTypedSelector((state) => state.pages);
   const { activeStore } = useTypedSelector((state) => state.stores);
   const { setActivePage } = useActions();
+  const icon = useExpandedIcon(page, isExpandedOpen, toggleExpandedOpen, setDisplay(open));
 
   useEffect(() => {
     checkIsPageActive(activePageName);
@@ -68,9 +70,9 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
     !open && setIsExpandedOpen(false);
   }, [open]);
 
-  const toggleExpandedOpen = (): void => {
+  function toggleExpandedOpen(): void {
     setIsExpandedOpen(!isExpandedOpen);
-  };
+  }
 
   const checkIsPageActive = (
     pageName: Page['displayName'] | SubPage['displayName'] | null
@@ -117,7 +119,7 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
             {open && <ListItemText primary={page.displayName} />}
           </ListItemButtonStyled>
           <ListItemIcon sx={styles.expandedIcon}>
-            {useExpandedIcon(page, isExpandedOpen, toggleExpandedOpen, setDisplay(open))}
+            {icon}
             {page.hasBadge && (
               <Badge
                 sx={styles.badge}
