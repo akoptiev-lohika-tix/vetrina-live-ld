@@ -3,16 +3,17 @@ import { CardProps as MuiCardProps } from '@mui/material/Card';
 
 interface CardProps extends MuiCardProps {
   background?: string;
+  padding?: string | number;
+  gap?: number;
 }
 
-export const CardStyled = styled(Card)<CardProps>(({ background }) => ({
+export const CardStyled = styled(Card)<CardProps>(({ background, padding = 24, gap = 24 }) => ({
   background: background,
-  padding: 24,
+  padding: padding,
   borderRadius: '10px',
-  minWidth: 'max-content',
   display: 'flex',
   flexDirection: 'column',
-  gap: 24,
+  gap: gap,
   '& .MuiCardActions-root': {
     padding: 0,
     justifyContent: 'space-between'

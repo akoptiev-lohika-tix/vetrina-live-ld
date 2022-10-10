@@ -23,3 +23,10 @@ export const SUPPORT_CARD_SECTION_TEXT = 'is here to help you.';
 export const NEWS_CARD_TITLE = 'Latest news';
 export const NEWS_CARD_LINK_TEXT = 'Visit our blog';
 export const NEWS_CARD_ESTIMATED_TEXT = 'Estimated reading: 4 min';
+export const EXTENSION_MARKETPLACE_CARD_TITLE = 'Extensions Marketplace';
+export const EXTENSION_MARKETPLACE_CARD_LINK_TEXT = 'Discover all extensions';
+export const EXTENSION_MARKETPLACE_ORANGE_DESCRIPTION = 'Connect your own domain';
+export const EXTENSION_MARKETPLACE_GREEN_DESCRIPTION = '50 Additional Products';
+export const MOBILE_MARKET_CARD_TEXT =
+  'Sell your products on your exclusive APP published on the stores';
+export const MOBILE_MARKET_CARD_LINK_TEXT = 'Show more';

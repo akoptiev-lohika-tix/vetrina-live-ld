@@ -81,6 +81,7 @@ const AppLayout = () => {
   const { palette } = useTheme();
   const { pages, loadingPages } = useTypedSelector((state) => state.pages);
   const { stores, loadingStores } = useTypedSelector((state) => state.stores);
+  const { news, loadingNews } = useTypedSelector((state) => state.news);
   const { fetchPages, fetchStores, fetchNews } = useActions();
 
   useEffect(() => {
@@ -95,10 +96,10 @@ const AppLayout = () => {
 
   return (
     <Box sx={{ display: 'flex', height: '100vh' }}>
-      {(loadingPages || loadingStores) && (
+      {(loadingPages || loadingStores || loadingNews) && (
         <CircularProgress size={100} thickness={2} sx={styles.loader} />
       )}
-      {stores.length && pages.length && (
+      {stores.length && pages.length && news.length && (
         <>
           <AppBar open={open} />
           <Drawer variant="permanent" open={open}>

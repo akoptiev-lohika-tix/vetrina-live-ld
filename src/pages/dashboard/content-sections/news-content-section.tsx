@@ -8,13 +8,11 @@ import { NewsContentItem } from './news-content-item';
 export const NewsContentSection: React.FC = () => {
   const styles = {
     gridBox: {
-      width: '680px',
       marginTop: '22px'
     }
   };
 
   const { news } = useTypedSelector((state) => state.news);
-  console.log(news);
 
   return (
     <Grid container sx={styles.gridBox} columnSpacing={2.5} rowSpacing={4}>
