@@ -10,6 +10,8 @@ import { useTypedSelector } from '../../redux/hooks';
 import {
   CONFIGURE_CARD_LINK_TEXT,
   CONFIGURE_CARD_TITLE,
+  EXTENSION_MARKETPLACE_CARD_LINK_TEXT,
+  EXTENSION_MARKETPLACE_CARD_TITLE,
   INVITE_FRIEND_CARD_LINK_TEXT,
   INVITE_FRIEND_CARD_TITLE,
   NEWS_CARD_LINK_TEXT,
@@ -24,6 +26,7 @@ import {
 
 import {
   ConfigureContentSection,
+  ExtensionContentSection,
   InviteFriendContentSection,
   NewsContentSection,
   OrdersContentSection,
@@ -96,9 +99,19 @@ const Dashboard: React.FC = () => {
                 {/*    linkColor={palette.secondary.main}*/}
                 {/*    linkText={CONFIGURE_CARD_LINK_TEXT}></DashboardContentCard>*/}
                 {/* </Grid>*/}
-                {/* <Grid item xs={6}>*/}
-                {/*  <DashboardContentCard iconName={'ArrowRight'} />*/}
-                {/* </Grid>*/}
+                <Grid item xs={6}>
+                  <DashboardContentCard
+                    headerIcon={'Extensions'}
+                    headerText={EXTENSION_MARKETPLACE_CARD_TITLE}
+                    background={palette.common.white}
+                    hasDropDown={false}
+                    isExtension={true}
+                    iconName={'ArrowRight'}
+                    linkColor={palette.secondary.main}
+                    linkText={EXTENSION_MARKETPLACE_CARD_LINK_TEXT}>
+                    <ExtensionContentSection />
+                  </DashboardContentCard>
+                </Grid>
                 <Grid item xs={12}>
                   <DashboardContentCard
                     isNews={true}

@@ -23,6 +23,7 @@ type Props = {
   linkGap?: number;
   width?: number | string;
   isNews?: boolean;
+  isExtension?: boolean;
 };
 
 const DashboardContentCard: React.FC<Props> = ({
@@ -34,12 +35,17 @@ const DashboardContentCard: React.FC<Props> = ({
   background,
   hasLink = true,
   isNews = false,
+  isExtension = false,
   ...linkProps
 }) => {
   const { palette, typography } = useTheme();
 
   return (
-    <CardStyled elevation={1} background={background}>
+    <CardStyled
+      gap={isNews ? 14 : 24}
+      elevation={1}
+      background={background}
+      padding={isExtension ? '24px 0 24px 24px' : 24}>
       <BoxStyled gap={96} justifyContent={'space-between'}>
         <BoxStyled gap={16} padding={isNews ? '0 8px' : '0'}>
           <SvgCreator iconName={headerIcon} color={palette.primary.main} />
