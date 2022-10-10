@@ -4,10 +4,11 @@ import { useTheme } from '@mui/material';
 
 import { BoxStyled, TypographyStyled } from '../../../components/shared-styled';
 import { MOBILE_MARKET_CARD_LINK_TEXT, MOBILE_MARKET_CARD_TEXT } from '../../../constants';
-import { useLink } from '../../../hooks';
-import PhoneImage from '../../../assets/phone_image.svg';
+
+import PhoneImage from '../../../assets/phone.png';
 import AppStore from '../../../assets/app_store.svg';
 import GooglePlay from '../../../assets/google_play.svg';
+import { LinkCreator } from '../../../components/link-creator/link-creator';
 
 export const MobileMarketsContentSection: React.FC = () => {
   const { palette, typography } = useTheme();
@@ -28,7 +29,7 @@ export const MobileMarketsContentSection: React.FC = () => {
             color={palette.common.white}>
             {MOBILE_MARKET_CARD_TEXT}
           </TypographyStyled>
-          {useLink(linkProps)}
+          <LinkCreator {...linkProps} />
         </BoxStyled>
         <BoxStyled component={'img'} src={PhoneImage} alt={'Phone'} />
       </BoxStyled>

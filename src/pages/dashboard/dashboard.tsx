@@ -146,6 +146,7 @@ const Dashboard: React.FC = () => {
                   <DashboardContentCard
                     background={palette.secondary.dark}
                     iconName={'ArrowRight'}
+                    isTrustpilot={true}
                     linkText={TRUSTPILOT_CARD_LINK_TEXT}
                     linkColor={palette.success.dark}
                     headerIcon={'TrustPilot'}

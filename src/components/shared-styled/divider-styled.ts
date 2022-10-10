@@ -1,5 +1,6 @@
 import { styled, Divider } from '@mui/material';
 import { DividerProps as MuiDividerProps } from '@mui/material/Divider';
+import { CSSObject } from '@mui/material/styles';
 
 interface DividerProps extends MuiDividerProps {
   margintop?: number;
@@ -8,7 +9,7 @@ interface DividerProps extends MuiDividerProps {
 }
 
 export const DividerStyled = styled(Divider)<DividerProps>(
-  ({ margintop = 0, marginbottom = 0, color }) => ({
+  ({ margintop = 0, marginbottom = 0, color }): CSSObject => ({
     marginTop: margintop,
     marginBottom: marginbottom,
     color: color,

@@ -1,5 +1,6 @@
 import { Typography, styled } from '@mui/material';
 import { TypographyProps as MuiTypographyProps } from '@mui/material/Typography';
+import { CSSObject } from '@mui/material/styles';
 
 interface TypographyProps extends MuiTypographyProps {
   fontfamily?: string;
@@ -20,7 +21,7 @@ export const TypographyStyled = styled(Typography)<TypographyProps>(
     color,
     textdecorationline = 'none',
     width
-  }) => ({
+  }): CSSObject => ({
     fontfamily: fontfamily,
     fontSize: fontSize,
     fontWeight: fontWeight,

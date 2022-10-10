@@ -3,10 +3,13 @@ import React from 'react';
 import { CardActions, useTheme } from '@mui/material';
 
 import { CardStyled } from './card-styled';
-import { useLink } from '../../../hooks';
+
 import { BoxStyled, IconButtonStyled, TypographyStyled } from '../../../components/shared-styled';
-import { SvgCreator } from '../../../helpers';
+
 import { CONTENT_DROPDOWN_TEXT } from '../../../constants';
+import { SvgCreator } from '../../../components/svg-creator/svg-creator';
+import { LinkCreator } from '../../../components/link-creator/link-creator';
+import TrustPilot from '../../../assets/trustpilot.svg';
 
 type Props = {
   headerIcon?: string;
@@ -22,6 +25,7 @@ type Props = {
   iconName?: string;
   linkGap?: number;
   width?: number | string;
+  isTrustpilot?: boolean;
   isNews?: boolean;
   isExtension?: boolean;
   isMobileMarket?: boolean;
@@ -38,6 +42,7 @@ const DashboardContentCard: React.FC<Props> = ({
   isNews = false,
   isExtension = false,
   isMobileMarket = false,
+  isTrustpilot = false,
   ...linkProps
 }) => {
   const { palette, typography } = useTheme();
@@ -51,7 +56,11 @@ const DashboardContentCard: React.FC<Props> = ({
       {!isMobileMarket && (
         <BoxStyled gap={96} justifyContent={'space-between'}>
           <BoxStyled gap={16} padding={isNews ? '0 8px' : '0'}>
-            <SvgCreator iconName={headerIcon} color={palette.primary.main} />
+            {!isTrustpilot ? (
+              <SvgCreator iconName={headerIcon} color={palette.primary.main} />
+            ) : (
+              <BoxStyled component={'img'} src={TrustPilot} />
+            )}
             {hasHeaderText && (
               <TypographyStyled
                 fontSize={20}
@@ -74,13 +83,20 @@ const DashboardContentCard: React.FC<Props> = ({
               </>
             </BoxStyled>
           )}
-          {/* eslint-disable-next-line react-hooks/rules-of-hooks */}
-          {isNews && <CardActions>{useLink(linkProps)}</CardActions>}
+          {isNews && (
+            <CardActions>
+              <LinkCreator {...linkProps} />
+            </CardActions>
+          )}
         </BoxStyled>
       )}
       {children}
-      {/* eslint-disable-next-line react-hooks/rules-of-hooks */}
-      {hasLink && !isMobileMarket && <CardActions>{useLink(linkProps)}</CardActions>}
+
+      {hasLink && !isMobileMarket && (
+        <CardActions>
+          <LinkCreator {...linkProps} />
+        </CardActions>
+      )}
     </CardStyled>
   );
 };

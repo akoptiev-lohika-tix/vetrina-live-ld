@@ -1,5 +1,6 @@
 import { styled, IconButton } from '@mui/material';
 import { IconButtonProps as MuiIconButtonProps } from '@mui/material/IconButton';
+import { CSSObject } from '@mui/material/styles';
 
 interface IconButtonProps extends MuiIconButtonProps {
   marginbottom?: number;
@@ -9,7 +10,7 @@ interface IconButtonProps extends MuiIconButtonProps {
 }
 
 export const IconButtonStyled = styled(IconButton)<IconButtonProps>(
-  ({ marginbottom = 0, width = 20, height = 20, display }) => ({
+  ({ marginbottom = 0, width = 20, height = 20, display }): CSSObject => ({
     padding: 0,
     margin: 0,
     marginBottom: marginbottom,

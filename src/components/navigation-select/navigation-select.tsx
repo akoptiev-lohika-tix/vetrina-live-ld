@@ -5,7 +5,8 @@ import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownR
 
 import { useActions, useTypedSelector } from '../../redux/hooks';
 import { NAV_SELECT_LABEL } from '../../constants';
-import { TypographyStyled, InputStyled, BoxStyled } from '../shared-styled';
+import { TypographyStyled, BoxStyled } from '../shared-styled';
+import { InputStyled } from './input-styled';
 
 type Props = {
   open: boolean;

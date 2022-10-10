@@ -9,27 +9,28 @@ import {
   DASHBOARD_BANNER_APP_BAR_HEIGHT,
   WELCOME_TEXT
 } from '../../../constants';
-import { useLink } from '../../../hooks';
 import { useTypedSelector } from '../../../redux/hooks';
-
-const styles = {
-  box: {
-    background: 'linear-gradient(180deg, #21B8F9 0%, rgba(33, 184, 249, 0) 132.05%)'
-  },
-  link: {
-    linkColor: '#ffffff',
-    fontFamily: 'Source Sans Pro, sans-serif',
-    lineHeight: '22px',
-    fontWeight: 500,
-    gap: 16,
-    iconName: 'HyperLink',
-    marginTop: 8
-  }
-};
+import { LinkCreator } from '../../../components/link-creator/link-creator';
 
 const DashboardHeader: React.FC = () => {
   const { palette } = useTheme();
   const { activeStore } = useTypedSelector((state) => state.stores);
+
+  const styles = {
+    box: {
+      background: 'linear-gradient(180deg, #21B8F9 0%, rgba(33, 184, 249, 0) 132.05%)'
+    },
+    link: {
+      linkColor: '#ffffff',
+      fontFamily: 'Source Sans Pro, sans-serif',
+      lineHeight: '22px',
+      fontWeight: 500,
+      gap: 16,
+      iconName: 'HyperLink',
+      marginTop: 8,
+      linkText: DASHBOARD_HEADER_LINK_BASE + activeStore?.path
+    }
+  };
 
   return (
     <Container maxWidth="xl" disableGutters>
@@ -47,10 +48,7 @@ const DashboardHeader: React.FC = () => {
           color={palette.common.white}>
           {WELCOME_TEXT}
         </TypographyStyled>
-        {useLink({
-          ...styles.link,
-          linkText: DASHBOARD_HEADER_LINK_BASE + activeStore?.path
-        })}
+        <LinkCreator {...styles.link} />
       </BoxStyled>
     </Container>
   );
