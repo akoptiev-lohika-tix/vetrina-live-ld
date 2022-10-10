@@ -27,8 +27,13 @@ export const ExtensionContentSection: React.FC = () => {
       padding: 0,
       color: palette.primary.main,
       '& .MuiImageListItemBar-title': {
-        whiteSpace: 'wrap',
+        paddingTop: '12px',
+        whiteSpace: 'normal',
+        wordWrap: 'break-word',
         width: '140px'
+      },
+      '& .MuiImageListItemBar-titleWrap': {
+        padding: 0
       }
     }
   };

@@ -28,6 +28,7 @@ import {
   ConfigureContentSection,
   ExtensionContentSection,
   InviteFriendContentSection,
+  MobileMarketsContentSection,
   NewsContentSection,
   OrdersContentSection,
   SupportContentSection,
@@ -91,14 +92,14 @@ const Dashboard: React.FC = () => {
                     <OrdersContentSection />
                   </DashboardContentCard>
                 </Grid>
-                {/* <Grid item xs={6}>*/}
-                {/*  <DashboardContentCard*/}
-                {/*    headerText={CONFIGURE_CARD_TITLE}*/}
-                {/*    headerIcon={'ConfigureShop'}*/}
-                {/*    hasDropDown={false}*/}
-                {/*    linkColor={palette.secondary.main}*/}
-                {/*    linkText={CONFIGURE_CARD_LINK_TEXT}></DashboardContentCard>*/}
-                {/* </Grid>*/}
+                <Grid item xs={6}>
+                  <DashboardContentCard
+                    hasDropDown={false}
+                    isMobileMarket={true}
+                    background={palette.warning.dark}>
+                    <MobileMarketsContentSection />
+                  </DashboardContentCard>
+                </Grid>
                 <Grid item xs={6}>
                   <DashboardContentCard
                     headerIcon={'Extensions'}

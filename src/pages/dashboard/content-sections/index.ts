@@ -6,3 +6,4 @@ export * from './invite-friend-content-section';
 export * from './support-content-section';
 export * from './news-content-section';
 export * from './extension-content-section';
+export * from './mobile-markets-content-section';
