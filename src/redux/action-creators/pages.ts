@@ -18,7 +18,7 @@ export const fetchPages = (): Function => {
       const mappedResponse = serverPagesMapper(response.data);
 
       dispatch({ type: pagesActionsEnum.FETCH_PAGES_SUCCESS, payload: mappedResponse });
-    } catch (e) {
+    } catch (e: any) {
       dispatch({ type: pagesActionsEnum.FETCH_PAGES_ERROR, payload: LOAD_DATA_ERROR });
     }
   };

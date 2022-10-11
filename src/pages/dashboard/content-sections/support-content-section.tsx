@@ -20,7 +20,10 @@ export const SupportContentSection: React.FC = () => {
       fontSize: 14,
       fontWeight: 600,
       textTransform: 'none',
-      boxShadow: shadows[1]
+      boxShadow: shadows[1],
+      '&:hover': {
+        background: palette.primary.main
+      }
     }
   };
   const activeSupportName = 'Simeone';

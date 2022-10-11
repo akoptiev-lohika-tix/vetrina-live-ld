@@ -15,9 +15,9 @@
       "path": "/catalogue",
       "iconName": "Catalogue",
       "subPages": [
-        { "name": "phones", "displayName": "Phones", "path": "/phones" },
+        { "name": "phones", "displayName": "Phones", "path": "phones" },
 
-        { "name": "computers", "displayName": "Computers", "path": "/computers" }
+        { "name": "computers", "displayName": "Computers", "path": "computers" }
       ],
       "hasBadge": false
     },
@@ -45,35 +45,35 @@
       "path": "/marketing",
       "iconName": "Marketing",
       "subPages": [
-        { "name": "discountCodes", "displayName": "Discount codes", "path": "/discount-codes" },
+        { "name": "discountCodes", "displayName": "Discount codes", "path": "discount-codes" },
         {
           "name": "exitIntent",
           "displayName": "Exit intent",
-          "path": "/exit-intent"
+          "path": "exit-intent"
         },
 
         {
           "name": "checkoutFeatures",
           "displayName": "Checkout Features",
-          "path": "/checkout-features"
+          "path": "checkout-features"
         },
         {
           "name": "postPurchaseConversion",
           "displayName": "Post-purchase conversion",
-          "path": "/post-purchase-conversion"
+          "path": "post-purchase-conversion"
         },
 
         {
           "name": "cartAbandonment",
           "displayName": "Cart abandonment",
-          "path": "/cart-abandonment"
+          "path": "cart-abandonment"
         },
 
-        { "name": "timerCheckout", "displayName": "Timer checkout", "path": "/timer-checkout" },
+        { "name": "timerCheckout", "displayName": "Timer checkout", "path": "timer-checkout" },
 
-        { "name": "sellOnSocial", "displayName": "Sell on Social", "path": "/sell-on-social" },
-        { "name": "specialOffer", "displayName": "Special Offer", "path": "/special-offer" },
-        { "name": "seasonalOffer", "displayName": "Seasonal Offer", "path": "/seasonal-offer" }
+        { "name": "sellOnSocial", "displayName": "Sell on Social", "path": "sell-on-social" },
+        { "name": "specialOffer", "displayName": "Special Offer", "path": "special-offer" },
+        { "name": "seasonalOffer", "displayName": "Seasonal Offer", "path": "seasonal-offer" }
       ],
       "hasBadge": false
     },

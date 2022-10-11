@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useTheme } from '@mui/material/styles';
 import { Collapse, ListItemIcon } from '@mui/material';
