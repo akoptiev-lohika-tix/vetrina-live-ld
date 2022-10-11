@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useTheme } from '@mui/material';
+import { Link, useTheme } from '@mui/material';
 
 import { BoxStyled, TypographyStyled } from '../../../components/shared-styled';
 import { MOBILE_MARKET_CARD_LINK_TEXT, MOBILE_MARKET_CARD_TEXT } from '../../../constants';
@@ -16,8 +16,10 @@ export const MobileMarketsContentSection: React.FC = () => {
   const linkProps = {
     linkColor: palette.common.white,
     linkText: MOBILE_MARKET_CARD_LINK_TEXT,
-    iconName: 'ArrowRight'
+    iconName: 'ArrowRight',
+    linkTo: 'mobile-market'
   };
+
   return (
     <BoxStyled flexDirection={'column'} gap={34}>
       <BoxStyled gap={24} alignItems={'flex-start'}>
@@ -34,8 +36,12 @@ export const MobileMarketsContentSection: React.FC = () => {
         <BoxStyled component={'img'} src={PhoneImage} alt={'Phone'} />
       </BoxStyled>
       <BoxStyled gap={26}>
-        <BoxStyled component={'img'} src={AppStore} alt={'App Store'} />
-        <BoxStyled component={'img'} src={GooglePlay} alt={'Google Play'} />
+        <Link href="https://www.apple.com/ru/app-store" target="_blank" rel="noopener">
+          <BoxStyled component={'img'} src={AppStore} alt={'App Store'} />
+        </Link>
+        <Link href="https://play.google.com/store/games" target="_blank" rel="noopener">
+          <BoxStyled component={'img'} src={GooglePlay} alt={'Google Play'} />
+        </Link>
       </BoxStyled>
     </BoxStyled>
   );

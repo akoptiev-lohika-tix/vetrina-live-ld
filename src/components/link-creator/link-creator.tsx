@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import { BoxStyled, TypographyStyled } from '../shared-styled';
 import { SvgCreator } from '../svg-creator/svg-creator';
@@ -14,7 +14,9 @@ type Props = {
   linkGap?: number;
   iconName?: string;
   marginTop?: string | number;
+  linkTo: string;
 };
+
 export const LinkCreator: React.FC<Props> = ({
   linkColor,
   fontFamily = 'Source Sans Pro, sans-serif',
@@ -24,10 +26,11 @@ export const LinkCreator: React.FC<Props> = ({
   linkText = '',
   linkGap = 12,
   iconName,
-  marginTop = 0
+  marginTop = 0,
+  linkTo
 }) => {
   return (
-    <Link href="/src/pages#">
+    <Link to={linkTo}>
       <BoxStyled
         color={linkColor}
         gap={linkGap}

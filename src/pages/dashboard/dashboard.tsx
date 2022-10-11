@@ -78,7 +78,8 @@ const Dashboard: React.FC = () => {
                     iconName={'ArrowRight'}
                     linkColor={palette.secondary.main}
                     linkText={VISITORS_CARD_LINK_TEXT}
-                    linkGap={20}>
+                    linkGap={20}
+                    linkTo={'contact-us'}>
                     <VisitorsContentSection />
                   </DashboardContentCard>
                 </Grid>
@@ -88,7 +89,8 @@ const Dashboard: React.FC = () => {
                     headerText={ORDERS_CARD_TITLE}
                     headerIcon={'Orders'}
                     linkColor={palette.secondary.main}
-                    linkText={ORDERS_CARD_LINK_TEXT}>
+                    linkText={ORDERS_CARD_LINK_TEXT}
+                    linkTo={'orders'}>
                     <OrdersContentSection />
                   </DashboardContentCard>
                 </Grid>
@@ -96,7 +98,8 @@ const Dashboard: React.FC = () => {
                   <DashboardContentCard
                     hasDropDown={false}
                     isMobileMarket={true}
-                    background={palette.warning.dark}>
+                    background={palette.warning.dark}
+                    linkTo={'mobile-market'}>
                     <MobileMarketsContentSection />
                   </DashboardContentCard>
                 </Grid>
@@ -109,7 +112,8 @@ const Dashboard: React.FC = () => {
                     isExtension={true}
                     iconName={'ArrowRight'}
                     linkColor={palette.secondary.main}
-                    linkText={EXTENSION_MARKETPLACE_CARD_LINK_TEXT}>
+                    linkText={EXTENSION_MARKETPLACE_CARD_LINK_TEXT}
+                    linkTo={'extensions'}>
                     <ExtensionContentSection />
                   </DashboardContentCard>
                 </Grid>
@@ -124,7 +128,8 @@ const Dashboard: React.FC = () => {
                     background={palette.common.white}
                     linkText={NEWS_CARD_LINK_TEXT}
                     linkColor={palette.secondary.main}
-                    linkGap={16}>
+                    linkGap={16}
+                    linkTo={'our-blog'}>
                     <NewsContentSection />
                   </DashboardContentCard>
                 </Grid>
@@ -138,7 +143,8 @@ const Dashboard: React.FC = () => {
                     hasDropDown={false}
                     iconName={'ArrowRight'}
                     linkColor={palette.secondary.main}
-                    linkText={CONFIGURE_CARD_LINK_TEXT}>
+                    linkText={CONFIGURE_CARD_LINK_TEXT}
+                    linkTo={'configure-shop'}>
                     <ConfigureContentSection />
                   </DashboardContentCard>
                 </Grid>
@@ -151,7 +157,8 @@ const Dashboard: React.FC = () => {
                     linkColor={palette.success.dark}
                     headerIcon={'TrustPilot'}
                     hasDropDown={false}
-                    hasHeaderText={false}>
+                    hasHeaderText={false}
+                    linkTo={'trustpilot'}>
                     <TrustpilotContentSection />
                   </DashboardContentCard>
                 </Grid>
@@ -163,7 +170,8 @@ const Dashboard: React.FC = () => {
                     linkText={INVITE_FRIEND_CARD_LINK_TEXT}
                     linkColor={palette.secondary.main}
                     headerIcon={'InviteFriends'}
-                    hasDropDown={false}>
+                    hasDropDown={false}
+                    linkTo={'invite-friends'}>
                     <InviteFriendContentSection />
                   </DashboardContentCard>
                 </Grid>
@@ -173,7 +181,8 @@ const Dashboard: React.FC = () => {
                     background={palette.common.white}
                     headerIcon={'Support'}
                     hasLink={false}
-                    hasDropDown={false}>
+                    hasDropDown={false}
+                    linkTo={'contact-us'}>
                     <SupportContentSection />
                   </DashboardContentCard>
                 </Grid>

@@ -29,6 +29,7 @@ type Props = {
   isNews?: boolean;
   isExtension?: boolean;
   isMobileMarket?: boolean;
+  linkTo: string;
 };
 
 const DashboardContentCard: React.FC<Props> = ({
