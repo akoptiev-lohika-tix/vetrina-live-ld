@@ -20,7 +20,7 @@ export const TrustpilotContentSection: React.FC = () => {
   const { palette } = useTheme();
 
   return (
-    <BoxStyled justifyContent={'flex-start'} width={'302px'}>
+    <BoxStyled justifyContent={'flex-start'}>
       <TypographyStyled fontSize={17} color={palette.common.white} lineHeight={'22px'}>
         Show us your love by leaving a{' '}
         <Box component={'span'} sx={styles.greenText}>
