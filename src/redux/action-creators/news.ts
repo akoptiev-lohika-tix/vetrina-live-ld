@@ -2,7 +2,7 @@ import { Dispatch } from 'react';
 import axios from 'axios';
 
 import { newsAction, newsActionsEnum } from '../types';
-import { BASE_NEWS_URL } from '../../constants';
+import { BASE_NEWS_URL, LOAD_DATA_ERROR } from '../../constants';
 
 type Function = (dispatch: Dispatch<newsAction>) => Promise<void>;
 
@@ -15,7 +15,7 @@ export const fetchNews = (): Function => {
 
       dispatch({ type: newsActionsEnum.FETCH_NEWS_SUCCESS, payload: response.data.results });
     } catch (e: any) {
-      dispatch({ type: newsActionsEnum.FETCH_NEWS_ERROR, payload: e.message });
+      dispatch({ type: newsActionsEnum.FETCH_NEWS_ERROR, payload: LOAD_DATA_ERROR });
     }
   };
 };

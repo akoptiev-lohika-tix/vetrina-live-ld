@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import { useActions, useTypedSelector } from '../../redux/hooks';
 import AppBar from '../app-bar/app-bar';
-import Dashboard from '../../pages/dashboard/dashboard';
 import { APP_BAR_HEIGHT } from '../../constants';
 import { Drawer } from '../drawer/drawer';
 import { DrawerHeaderStyled } from '../drawer/drawer-header-styled';
+import { LoadingError } from '../loading-error/loading-error';
 
 const AppLayout = () => {
   const styles = {
@@ -31,8 +31,8 @@ const AppLayout = () => {
 
   const [open, setOpen] = useState(true);
 
-  const { pages, loadingPages } = useTypedSelector((state) => state.pages);
-  const { stores, loadingStores } = useTypedSelector((state) => state.stores);
+  const { pages, loadingPages, error } = useTypedSelector((state) => state.pages);
+  const { stores, loadingStores, errorStores } = useTypedSelector((state) => state.stores);
   const { news, loadingNews } = useTypedSelector((state) => state.news);
   const { fetchPages, fetchStores, fetchNews } = useActions();
 
@@ -51,6 +51,8 @@ const AppLayout = () => {
       {(loadingPages || loadingStores || loadingNews) && (
         <CircularProgress size={100} thickness={2} sx={styles.loader} />
       )}
+      {error && <LoadingError error={error} />}
+      {errorStores && <LoadingError error={errorStores} />}
       {stores.length && pages.length && news.length && (
         <>
           <AppBar open={open} />
@@ -58,7 +60,7 @@ const AppLayout = () => {
 
           <Box sx={styles.content}>
             <DrawerHeaderStyled />
-            <Dashboard />
+            <Outlet />
           </Box>
         </>
       )}

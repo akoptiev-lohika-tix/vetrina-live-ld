@@ -1,9 +1,12 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import { ThemeProvider, createTheme, Shadows } from '@mui/material/styles';
 
 import AppLayout from './components/app-layout/app-layout';
 import './App.css';
+import Dashboard from './pages/dashboard/dashboard';
+import { NotFoundPage } from './pages/not-found-page/not-found-page';
 
 const theme = createTheme({
   palette: {
@@ -69,7 +72,13 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <AppLayout />
+        <Routes>
+          <Route path="/" element={<AppLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
       </div>
     </ThemeProvider>
   );

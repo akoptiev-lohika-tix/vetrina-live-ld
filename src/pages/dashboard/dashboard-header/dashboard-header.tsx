@@ -28,7 +28,8 @@ const DashboardHeader: React.FC = () => {
       gap: 16,
       iconName: 'HyperLink',
       marginTop: 8,
-      linkText: DASHBOARD_HEADER_LINK_BASE + activeStore?.path
+      linkText: DASHBOARD_HEADER_LINK_BASE + activeStore?.path,
+      linkTo: `app.vetrinalive.it${activeStore?.path}`
     }
   };
 

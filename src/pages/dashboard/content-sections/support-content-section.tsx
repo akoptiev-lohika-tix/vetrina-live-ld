@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import { Button, useTheme } from '@mui/material';
@@ -20,7 +21,13 @@ export const SupportContentSection: React.FC = () => {
       fontSize: 14,
       fontWeight: 600,
       textTransform: 'none',
-      boxShadow: shadows[1]
+      boxShadow: shadows[1],
+      '&:hover': {
+        background: palette.primary.main
+      }
+    },
+    link: {
+      textDecoration: 'none'
     }
   };
   const activeSupportName = 'Simeone';
@@ -35,9 +42,11 @@ export const SupportContentSection: React.FC = () => {
             palette.primary.main
           }>{`${activeSupportName} ${SUPPORT_CARD_SECTION_TEXT}`}</TypographyStyled>
       </BoxStyled>
-      <Button variant="contained" sx={styles.button} disableRipple>
-        {SUPPORT_CARD_BUTTON_TEXT}
-      </Button>
+      <Link to={'contact-us'} style={styles.link}>
+        <Button variant="contained" sx={styles.button} disableRipple>
+          {SUPPORT_CARD_BUTTON_TEXT}
+        </Button>
+      </Link>
     </BoxStyled>
   );
 };

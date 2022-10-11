@@ -17,7 +17,7 @@ export const InviteFriendContentSection: React.FC = () => {
   };
 
   return (
-    <BoxStyled width={'302px'} justifyContent={'flex-start'}>
+    <BoxStyled justifyContent={'flex-start'}>
       <TypographyStyled fontSize={17} color={palette.primary.main} lineHeight={'22px'}>
         <Box component={'span'} sx={styles.greenText}>
           Receive 50 products

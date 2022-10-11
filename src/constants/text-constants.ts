@@ -1,4 +1,4 @@
-export const LOAD_DATA_ERROR = 'Download was failed. Please try again later or contact us';
+export const LOAD_DATA_ERROR = 'Loading was failed. Please try again later or contact us';
 export const NAV_SELECT_LABEL = 'Select your shop';
 export const NOTIFICATION_TITLE = `What's new`;
 export const WELCOME_TEXT = 'Welcome Mario!';
@@ -30,3 +30,5 @@ export const EXTENSION_MARKETPLACE_GREEN_DESCRIPTION = '50 Additional Products';
 export const MOBILE_MARKET_CARD_TEXT =
   'Sell your products on your exclusive APP published on the stores';
 export const MOBILE_MARKET_CARD_LINK_TEXT = 'Show more';
+export const NOT_FOUND_PAGE_TEXT = `Oops! We can't find this page or it's not created yet. Please try again later`;
+export const NOT_FOUND_PAGE_BUTTON_TEXT = `Back to Homepage`;

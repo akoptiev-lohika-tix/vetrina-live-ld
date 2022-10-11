@@ -39,7 +39,7 @@ export const ConfigureContentSection: React.FC = () => {
           Completed
         </TypographyStyled>
       </BoxStyled>
-      <BoxStyled maxWidth={'302px'}>
+      <BoxStyled>
         <TypographyStyled fontSize={17} lineHeight={'22px'} color={palette.primary.main}>
           {CONFIGURE_SECTION_DESCRIPTION}
         </TypographyStyled>

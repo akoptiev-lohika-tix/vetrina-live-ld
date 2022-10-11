@@ -4,7 +4,6 @@ import { DRAWER_OPEN } from '../../constants';
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: DRAWER_OPEN,
-  height: 'max-content',
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.enteringScreen
@@ -13,7 +12,6 @@ const openedMixin = (theme: Theme): CSSObject => ({
 });
 
 const closedMixin = (theme: Theme): CSSObject => ({
-  height: 'max-content',
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen

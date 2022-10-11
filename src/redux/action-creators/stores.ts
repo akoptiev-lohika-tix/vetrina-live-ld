@@ -16,7 +16,7 @@ export const fetchStores = (): Function => {
       const mappedResponse = serverStoresMapper(response.data);
 
       dispatch({ type: storesActionsEnum.FETCH_STORES_SUCCESS, payload: mappedResponse });
-    } catch (e) {
+    } catch (e: any) {
       dispatch({ type: storesActionsEnum.FETCH_STORES_ERROR, payload: LOAD_DATA_ERROR });
     }
   };
