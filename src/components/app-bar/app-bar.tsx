@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { memo } from 'react';
 
 import { Container } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -63,4 +63,4 @@ const AppBar: React.FC<Props> = ({ open }) => {
   );
 };
 
-export default AppBar;
+export default memo(AppBar);

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import { useTheme } from '@mui/material/styles';
 import { Collapse, ListItemIcon } from '@mui/material';
@@ -140,27 +139,26 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
         <Collapse in={isExpandedOpen} timeout="auto" unmountOnExit>
           <ListStyled background={palette.secondary.light} paddingtop={6} paddingbottom={6}>
             {page.subPages.map((subPage) => (
-              <Link key={subPage.id} to={`${page.path}/${subPage.path}`} style={styles.link}>
-                <ListItemStyled
-                  color={
-                    subPage.displayName === activePageName
-                      ? palette.secondary.main
-                      : palette.primary.dark
-                  }
-                  disablePadding
-                  marginbottom={0}>
-                  <ListItemButtonStyled
-                    disableGutters
-                    disableRipple
-                    height={36}
-                    paddingleft={56}
-                    onClick={() => {
-                      setActivePage(subPage.displayName);
-                    }}>
-                    <ListItemText primary={subPage.displayName} />
-                  </ListItemButtonStyled>
-                </ListItemStyled>
-              </Link>
+              <ListItemStyled
+                key={subPage.id}
+                color={
+                  subPage.displayName === activePageName
+                    ? palette.secondary.main
+                    : palette.primary.dark
+                }
+                disablePadding
+                marginbottom={0}>
+                <ListItemButtonStyled
+                  disableGutters
+                  disableRipple
+                  height={36}
+                  paddingleft={56}
+                  onClick={() => {
+                    setActivePage(subPage.displayName);
+                  }}>
+                  <ListItemText primary={subPage.displayName} />
+                </ListItemButtonStyled>
+              </ListItemStyled>
             ))}
           </ListStyled>
         </Collapse>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
@@ -6,8 +6,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 import { useActions, useTypedSelector } from '../../redux/hooks';
 import AppBar from '../app-bar/app-bar';
+import Drawer from '../drawer/drawer';
 import { APP_BAR_HEIGHT } from '../../constants';
-import { Drawer } from '../drawer/drawer';
 import { DrawerHeaderStyled } from '../drawer/drawer-header-styled';
 import { LoadingError } from '../loading-error/loading-error';
 
@@ -31,7 +31,7 @@ const AppLayout = () => {
 
   const [open, setOpen] = useState(true);
 
-  const { pages, loadingPages, error, activePageName } = useTypedSelector((state) => state.pages);
+  const { pages, loadingPages, error } = useTypedSelector((state) => state.pages);
   const { stores, loadingStores, errorStores } = useTypedSelector((state) => state.stores);
   const { news, loadingNews } = useTypedSelector((state) => state.news);
   const { fetchPages, fetchStores, fetchNews } = useActions();
@@ -42,9 +42,9 @@ const AppLayout = () => {
     fetchNews();
   }, []);
 
-  const handleDrawerOpenClose = (): void => {
+  const handleDrawerOpenClose = useCallback(() => {
     setOpen(!open);
-  };
+  }, [open]);
 
   return (
     <Box sx={styles.main}>
@@ -53,7 +53,7 @@ const AppLayout = () => {
       )}
       {error && <LoadingError error={error} />}
       {errorStores && <LoadingError error={errorStores} />}
-      {stores.length && pages.length && news.length && activePageName && (
+      {stores.length && pages.length && news.length && (
         <>
           <AppBar open={open} />
           <Drawer open={open} onClose={handleDrawerOpenClose} pages={pages} />
