@@ -31,7 +31,7 @@ const AppLayout = () => {
 
   const [open, setOpen] = useState(true);
 
-  const { pages, loadingPages, error } = useTypedSelector((state) => state.pages);
+  const { pages, loadingPages, error, activePageName } = useTypedSelector((state) => state.pages);
   const { stores, loadingStores, errorStores } = useTypedSelector((state) => state.stores);
   const { news, loadingNews } = useTypedSelector((state) => state.news);
   const { fetchPages, fetchStores, fetchNews } = useActions();
@@ -53,7 +53,7 @@ const AppLayout = () => {
       )}
       {error && <LoadingError error={error} />}
       {errorStores && <LoadingError error={errorStores} />}
-      {stores.length && pages.length && news.length && (
+      {stores.length && pages.length && news.length && activePageName && (
         <>
           <AppBar open={open} />
           <Drawer open={open} onClose={handleDrawerOpenClose} pages={pages} />

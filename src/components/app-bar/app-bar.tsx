@@ -30,7 +30,7 @@ const AppBar: React.FC<Props> = ({ open }) => {
   const { palette, typography } = useTheme();
 
   return (
-    <AppBarStyled position="fixed" open={open}>
+    <AppBarStyled position="fixed" open={open} role={'app-bar'}>
       <Container maxWidth="xl" disableGutters>
         <Toolbar>
           <TypographyStyled
@@ -51,7 +51,8 @@ const AppBar: React.FC<Props> = ({ open }) => {
                 fontFamily={'Source Sans Pro, sans-serif'}
                 fontWeight={typography.fontWeightRegular}
                 fontSize={15}
-                lineHeight={'20px'}>
+                lineHeight={'20px'}
+                role={'notification'}>
                 {NOTIFICATION_TITLE}
               </TypographyStyled>
             </Badge>
