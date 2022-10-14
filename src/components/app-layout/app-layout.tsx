@@ -29,6 +29,8 @@ const AppLayout = () => {
     }
   };
 
+  console.log('Layout');
+
   const [open, setOpen] = useState(true);
 
   const { pages, loadingPages, error } = useTypedSelector((state) => state.pages);

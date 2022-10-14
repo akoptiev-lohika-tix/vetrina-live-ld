@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 
 import { useTheme } from '@mui/material/styles';
 import { Collapse, ListItemIcon } from '@mui/material';
@@ -167,4 +167,4 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
   );
 };
 
-export default NavListItem;
+export default memo(NavListItem);
