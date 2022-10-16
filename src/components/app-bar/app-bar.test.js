@@ -2,15 +2,26 @@ import React from 'react';
 
 import { screen } from '@testing-library/react';
 
-import { renderWithRedux } from '../../../test-utils';
+import renderConnected from '../../../test-utils';
 import AppBar from './app-bar';
 import { NOTIFICATION_TITLE } from '../../constants';
 
-describe('AppBar', () => {
-  it('should have notification section with correct name', () => {
-    renderWithRedux(<AppBar />);
+const initialState = {
+  pages: {
+    activePageName: 'Dashboard'
+  }
+};
 
-    expect(screen.getByRole('notification')).toBeInTheDocument();
-    expect(screen.getByRole('notification')).toHaveTextContent(NOTIFICATION_TITLE);
+describe('AppBar testing', () => {
+  beforeEach(() => {
+    renderConnected(<AppBar />, { initialState });
+  });
+
+  it('should have correct active page name', () => {
+    expect(screen.getByTestId('active-page')).toHaveTextContent(initialState.pages.activePageName);
+  });
+
+  it('should have notification section with correct name', () => {
+    expect(screen.getByTestId('notification')).toHaveTextContent(NOTIFICATION_TITLE);
   });
 });

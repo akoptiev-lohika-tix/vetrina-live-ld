@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { memo, useEffect, useState } from 'react';
 
 import { useTheme } from '@mui/material/styles';
 import { Collapse, ListItemIcon } from '@mui/material';
@@ -119,15 +118,16 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
                 color={isActive ? palette.secondary.main : palette.primary.main}
               />
             </ListItemIcon>
-            {open && <ListItemText primary={page.displayName} />}
+            {open && <ListItemText primary={page.displayName} data-testid={'text'} />}
           </ListItemButtonStyled>
-          <ListItemIcon sx={styles.expandedIcon}>
+          <ListItemIcon sx={styles.expandedIcon} data-testid={'arrow-icon'}>
             {icon}
             {page.hasBadge && (
               <Badge
                 sx={styles.badge}
                 badgeContent={activeStore?.data?.ordersNew}
                 color="success"
+                data-testid={'badge'}
               />
             )}
           </ListItemIcon>
@@ -140,27 +140,26 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
         <Collapse in={isExpandedOpen} timeout="auto" unmountOnExit>
           <ListStyled background={palette.secondary.light} paddingtop={6} paddingbottom={6}>
             {page.subPages.map((subPage) => (
-              <Link key={subPage.id} to={`${page.path}/${subPage.path}`} style={styles.link}>
-                <ListItemStyled
-                  color={
-                    subPage.displayName === activePageName
-                      ? palette.secondary.main
-                      : palette.primary.dark
-                  }
-                  disablePadding
-                  marginbottom={0}>
-                  <ListItemButtonStyled
-                    disableGutters
-                    disableRipple
-                    height={36}
-                    paddingleft={56}
-                    onClick={() => {
-                      setActivePage(subPage.displayName);
-                    }}>
-                    <ListItemText primary={subPage.displayName} />
-                  </ListItemButtonStyled>
-                </ListItemStyled>
-              </Link>
+              <ListItemStyled
+                key={subPage.id}
+                color={
+                  subPage.displayName === activePageName
+                    ? palette.secondary.main
+                    : palette.primary.dark
+                }
+                disablePadding
+                marginbottom={0}>
+                <ListItemButtonStyled
+                  disableGutters
+                  disableRipple
+                  height={36}
+                  paddingleft={56}
+                  onClick={() => {
+                    setActivePage(subPage.displayName);
+                  }}>
+                  <ListItemText primary={subPage.displayName} data-testId={'sub-page'} />
+                </ListItemButtonStyled>
+              </ListItemStyled>
             ))}
           </ListStyled>
         </Collapse>
@@ -169,4 +168,4 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
   );
 };
 
-export default NavListItem;
+export default memo(NavListItem);

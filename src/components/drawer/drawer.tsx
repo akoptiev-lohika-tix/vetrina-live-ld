@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useTheme } from '@mui/material/styles';
@@ -17,7 +17,7 @@ type Props = {
   onClose: () => void;
 };
 
-export const Drawer: React.FC<Props> = ({ open, onClose, pages }) => {
+const Drawer: React.FC<Props> = ({ open, onClose, pages }) => {
   const { palette } = useTheme();
 
   const styles = {
@@ -51,3 +51,5 @@ export const Drawer: React.FC<Props> = ({ open, onClose, pages }) => {
     </DrawerStyled>
   );
 };
+
+export default memo(Drawer);

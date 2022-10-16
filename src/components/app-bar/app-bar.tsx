@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { memo } from 'react';
 
 import { Container } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -37,7 +37,8 @@ const AppBar: React.FC<Props> = ({ open }) => {
             color={palette.primary.main}
             fontWeight={typography.fontWeightMedium}
             fontSize={17}
-            lineHeight={'22px'}>
+            lineHeight={'22px'}
+            data-testid={'active-page'}>
             {activePageName}
           </TypographyStyled>
           <BoxStyled gap={4}>
@@ -52,7 +53,7 @@ const AppBar: React.FC<Props> = ({ open }) => {
                 fontWeight={typography.fontWeightRegular}
                 fontSize={15}
                 lineHeight={'20px'}
-                role={'notification'}>
+                data-testid={'notification'}>
                 {NOTIFICATION_TITLE}
               </TypographyStyled>
             </Badge>
@@ -63,4 +64,4 @@ const AppBar: React.FC<Props> = ({ open }) => {
   );
 };
 
-export default AppBar;
+export default memo(AppBar);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 import { ThemeProvider, createTheme, Shadows } from '@mui/material/styles';
 
@@ -71,15 +71,16 @@ const theme = createTheme({
 const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="dashboard" element={<Dashboard />} />
+            <Route path="vetrina-live-ld" element={<Dashboard />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
-      </div>
+      </BrowserRouter>
     </ThemeProvider>
   );
 };
