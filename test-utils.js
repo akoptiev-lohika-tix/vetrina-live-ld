@@ -1,9 +1,18 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { legacy_createStore as createStore } from 'redux';
 
 import { render } from '@testing-library/react';
 
-import { store } from './src/redux/store';
+import { rootReducer } from './src/redux/reducers';
 
-export const renderWithRedux = (component) =>
-  render(<Provider store={store}>{component}</Provider>);
+const renderConnected = (
+  ui,
+  { initialState = {}, store = createStore(rootReducer, initialState), ...renderOptions } = {}
+) => {
+  // eslint-disable-next-line react/prop-types
+  const Wrapper = ({ children }) => <Provider store={store}>{children}</Provider>;
+  return render(ui, { wrapper: Wrapper, ...renderOptions });
+};
+
+export default renderConnected;

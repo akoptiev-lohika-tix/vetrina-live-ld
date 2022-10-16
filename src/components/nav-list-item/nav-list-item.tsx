@@ -118,15 +118,16 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
                 color={isActive ? palette.secondary.main : palette.primary.main}
               />
             </ListItemIcon>
-            {open && <ListItemText primary={page.displayName} />}
+            {open && <ListItemText primary={page.displayName} data-testid={'text'} />}
           </ListItemButtonStyled>
-          <ListItemIcon sx={styles.expandedIcon}>
+          <ListItemIcon sx={styles.expandedIcon} data-testid={'arrow-icon'}>
             {icon}
             {page.hasBadge && (
               <Badge
                 sx={styles.badge}
                 badgeContent={activeStore?.data?.ordersNew}
                 color="success"
+                data-testid={'badge'}
               />
             )}
           </ListItemIcon>
@@ -156,7 +157,7 @@ const NavListItem: React.FC<Props> = ({ page, open }) => {
                   onClick={() => {
                     setActivePage(subPage.displayName);
                   }}>
-                  <ListItemText primary={subPage.displayName} />
+                  <ListItemText primary={subPage.displayName} data-testId={'sub-page'} />
                 </ListItemButtonStyled>
               </ListItemStyled>
             ))}
