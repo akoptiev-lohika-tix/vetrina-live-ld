@@ -1,21 +1,20 @@
 {
   "files": {
     "main.css": "/vetrina-live-ld/static/css/main.59b478d0.css",
-    "main.js": "/vetrina-live-ld/static/js/main.7f1b23b4.js",
-    "static/js/787.138e1a45.chunk.js": "/vetrina-live-ld/static/js/787.138e1a45.chunk.js",
-    "static/media/phone_image.svg": "/vetrina-live-ld/static/media/phone_image.e51110a4388b0223d5aedc4fb4ac673b.svg",
+    "main.js": "/vetrina-live-ld/static/js/main.03a4fb13.js",
+    "static/media/phone.png": "/vetrina-live-ld/static/media/phone.c2cd22ab0222c2f38daa.png",
     "static/media/no_image.png": "/vetrina-live-ld/static/media/no_image.9aba454c1722fae504ec.png",
     "static/media/google_play.svg": "/vetrina-live-ld/static/media/google_play.74b9fb06b035f4a637294be19ceadb22.svg",
     "static/media/app_store.svg": "/vetrina-live-ld/static/media/app_store.d857c8067cd59c4a7824f29d87a9108b.svg",
+    "static/media/trustpilot.svg": "/vetrina-live-ld/static/media/trustpilot.96929b63af1be83706444ed1b1fb3385.svg",
     "static/media/extension_green_img.svg": "/vetrina-live-ld/static/media/extension_green_img.c3a05f30a29f127e7558fd68a772b78d.svg",
     "static/media/extension_orange_img.svg": "/vetrina-live-ld/static/media/extension_orange_img.c211f453860b57aa3d5a9ce8a49f4c45.svg",
     "index.html": "/vetrina-live-ld/index.html",
     "main.59b478d0.css.map": "/vetrina-live-ld/static/css/main.59b478d0.css.map",
-    "main.7f1b23b4.js.map": "/vetrina-live-ld/static/js/main.7f1b23b4.js.map",
-    "787.138e1a45.chunk.js.map": "/vetrina-live-ld/static/js/787.138e1a45.chunk.js.map"
+    "main.03a4fb13.js.map": "/vetrina-live-ld/static/js/main.03a4fb13.js.map"
   },
   "entrypoints": [
     "static/css/main.59b478d0.css",
-    "static/js/main.7f1b23b4.js"
+    "static/js/main.03a4fb13.js"
   ]
 }
