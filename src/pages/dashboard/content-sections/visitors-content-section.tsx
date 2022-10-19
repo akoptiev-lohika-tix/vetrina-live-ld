@@ -14,7 +14,8 @@ export const VisitorsContentSection: React.FC = () => {
         fontSize={42}
         color={palette.primary.main}
         fontWeight={typography.fontWeightMedium}
-        lineHeight={'61px'}>
+        lineHeight={'61px'}
+        data-testid={'visitors'}>
         {activeStore && activeStore.data.visitors}
       </TypographyStyled>
     </BoxStyled>
